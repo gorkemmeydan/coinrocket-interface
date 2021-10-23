@@ -3,7 +3,7 @@ import { ServerStyleSheet } from 'styled-components';
 
 // For media styles
 import { Html, Head, Main, NextScript } from 'next/document';
-import { mediaStyles } from './media';
+import { mediaStyles } from '../styles/media';
 export default class MyDocument extends Document {
   // For media SSR with layout media from @artsy/fresnel inject css to head
   render() {
