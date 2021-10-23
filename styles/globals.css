@@ -2,8 +2,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: linear-gradient(45deg, #102eff, #d2379b);
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
 }
 
 a {
