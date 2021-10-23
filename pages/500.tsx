@@ -4,7 +4,7 @@ import StoryCard from '../components/story-card/story-card.component';
 
 import Icon500 from '../public/icon500';
 
-const Custom500: React.FC = () => {
+const Custom500: NextPage = () => {
   const cardText = '500 - Oooops... Something went wrong.';
 
   return (

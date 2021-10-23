@@ -4,7 +4,7 @@ import StoryCard from '../components/story-card/story-card.component';
 
 import Icon404 from '../public/icon404';
 
-const Custom404: React.FC = () => {
+const Custom404: NextPage = () => {
   const cardText = "404 - We can't find the page you're looking for";
 
   return (
