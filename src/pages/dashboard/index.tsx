@@ -7,7 +7,7 @@ const Dashboard: NextPage = () => {
       <Media at='mobile'>Hello mobile!</Media>
       <Media at='small'>Hello small!</Media>
       <Media at='medium'>Hello medium!</Media>
-      <Media at='large'>Hello large!</Media>
+      <Media greaterThanOrEqual='large'>Hello large!</Media>
     </MediaContextProvider>
   );
 };
