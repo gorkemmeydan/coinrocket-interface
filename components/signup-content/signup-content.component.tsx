@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import SignInForm from '../signin-form/signin-form.component';
+import SignUpForm from '../signup-form/signup-form.component';
 
 import * as S from './signup-content.styled';
 
@@ -10,7 +10,7 @@ const SignUpContent: React.FC = () => {
   return (
     <S.SignUpContentWrapper>
       <S.SignUpTitle>Sign Up</S.SignUpTitle>
-      <SignInForm />
+      <SignUpForm />
       <S.RedirectToSignInWrapper>
         <S.RedirectInfoText>Already have an account?</S.RedirectInfoText>
         <S.RedirectToSignInText onClick={() => router.push('/login')}>

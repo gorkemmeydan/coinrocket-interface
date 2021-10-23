@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 import * as S from './header.styled';
-import RocketIcon from '../../public/rocket';
+import RocketIcon from '../../assets/rocket';
 
 interface HeaderProps {
   withLoginButton: boolean;

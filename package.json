@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@artsy/fresnel": "^3.0.2",
     "@types/styled-components": "^5.1.15",
     "formik": "^2.2.9",
     "next": "11.1.2",
