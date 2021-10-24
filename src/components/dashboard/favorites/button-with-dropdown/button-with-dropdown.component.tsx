@@ -8,7 +8,7 @@ const ButtonWithDropDown: React.FC = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   // Create a ref that we add to the element for which we want to detect outside clicks
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
   // Call hook passing in the ref and a function to call on outside click
   useOnClickOutside(ref, () => setDropdownOpen(false));
 
@@ -17,7 +17,7 @@ const ButtonWithDropDown: React.FC = () => {
   };
 
   return (
-    <S.DropdownWrapper>
+    <S.DropdownWrapper ref={ref}>
       <S.DropdownButton onClick={() => toggleDropdown()}>
         {!isDropdownOpen ? (
           <BsThreeDotsVertical size={'25'} />
