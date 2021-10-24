@@ -1,11 +1,15 @@
 import React from 'react';
-import Panel from '../../components/dashboard/panel/panel.component';
+import DashboardLayout from '../../components/dashboard/dashboard.component';
+import Panel from '../../components/panel/panel.component';
+
+import { Row } from './row.styled';
 
 const DashboardLarge: React.FC = () => {
   return (
-    <div>
+    <Row>
       <Panel isFullSize={true} isTop={false} />
-    </div>
+      <DashboardLayout />
+    </Row>
   );
 };
 

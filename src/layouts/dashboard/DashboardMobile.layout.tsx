@@ -1,11 +1,12 @@
 import React from 'react';
-import Panel from '../../components/dashboard/panel/panel.component';
+import Panel from '../../components/panel/panel.component';
+import { Row } from './row.styled';
 
 const DashboardMobile: React.FC = () => {
   return (
-    <div>
+    <Row>
       <Panel isFullSize={false} isTop={true} />
-    </div>
+    </Row>
   );
 };
 

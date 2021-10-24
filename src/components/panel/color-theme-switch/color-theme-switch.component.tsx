@@ -7,13 +7,13 @@ import * as S from './color-theme-switch.styled';
 
 const ColorThemeSwitch: React.FC = () => {
   //TODO: get state from store
-  const [mode, setMode] = useState(boolean);
+  const [isNightTheme, setNightTheme] = useState(true);
 
   const iconSize = '30';
 
   return (
-    <S.ColorThemeSwitchWrapper>
-      {mode ? (
+    <S.ColorThemeSwitchWrapper onClick={() => setNightTheme(!isNightTheme)}>
+      {isNightTheme ? (
         <BsFillMoonStarsFill size={iconSize} />
       ) : (
         <BsFillSunFill size={iconSize} />

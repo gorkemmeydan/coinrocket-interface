@@ -1,5 +1,5 @@
 import React from 'react';
-import RocketIcon from '../../../../assets/rocket';
+import RocketIcon from '../../../assets/rocket';
 
 import * as S from './panel-logo.styled';
 
