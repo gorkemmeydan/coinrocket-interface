@@ -11,7 +11,7 @@ const FavoriteItemChart: React.FC<Props> = ({ isPositive, data }: Props) => {
 
   return (
     <ResponsiveContainer width='100%' height='100%'>
-      <LineChart width={300} height={100} data={data}>
+      <LineChart data={data}>
         <Line
           type='monotone'
           dataKey='key'
@@ -19,6 +19,7 @@ const FavoriteItemChart: React.FC<Props> = ({ isPositive, data }: Props) => {
           strokeWidth={2}
           dot={false}
           isAnimationActive={true}
+          connectNulls={true}
         />
       </LineChart>
     </ResponsiveContainer>
