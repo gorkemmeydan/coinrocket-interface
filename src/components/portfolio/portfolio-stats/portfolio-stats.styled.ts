@@ -7,7 +7,7 @@ export const PortFolioStatsWrapper = styled.div`
   margin: 1vh;
   border-radius: 2vmin;
   height: 25vh;
-  flex: 1 0;
+  width: 95%;
 
   display: flex;
   flex-direction: column;

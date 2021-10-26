@@ -7,12 +7,10 @@ interface Props {
   range: number[];
 }
 
-const FavoriteItemChart: React.FC<Props> = ({
-  isPositive,
-  data,
-  range,
-}: Props) => {
+const PriceChart: React.FC<Props> = ({ isPositive, data, range }: Props) => {
   const plotColor = `${isPositive ? '#00F902' : '#F90000'}`;
+
+  console.log(data);
 
   return (
     <ResponsiveContainer width='100%' height='100%'>
@@ -32,4 +30,4 @@ const FavoriteItemChart: React.FC<Props> = ({
   );
 };
 
-export default FavoriteItemChart;
+export default PriceChart;

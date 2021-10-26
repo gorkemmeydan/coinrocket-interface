@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ButtonWithDropDown from '../button-with-dropdown/button-with-dropdown.component';
-import FavoriteItemChart from '../favorite-item-chart/favorite-item-chart.component';
+import PriceChart from '../../../price-chart/price-chart.component';
 
 import checkPositive from '../../../../utils/checkPositive.util';
 
@@ -36,7 +36,7 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({
           </S.PriceChange>
         </S.PriceItems>
         <S.PriceChart>
-          <FavoriteItemChart
+          <PriceChart
             isPositive={checkPositive(change)}
             data={chartData}
             range={range}
