@@ -11,7 +11,7 @@ import {
 
 interface Props {
   isPositive: boolean;
-  data: readonly object[];
+  data: object[];
 }
 
 const PortfolioChart: React.FC<Props> = ({ isPositive, data }: Props) => {

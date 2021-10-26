@@ -8,12 +8,14 @@ export const PanelLogoWrapper = styled.div`
 `;
 
 export const CompanyName = styled.div`
-  font-size: 40px;
+  font-size: calc(1vw + 2vmin);
 `;
 
 export const LogoContainer = styled.div`
   transform: rotate(20deg);
-  height: 50px;
-  width: 50px;
+  height: 5vmin;
+  min-height: 30px;
+  width: 5vmin;
+  min-width: 30px;
   fill: white;
 `;

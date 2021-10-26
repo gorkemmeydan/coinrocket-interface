@@ -11,7 +11,8 @@ interface FavoriteItemProps {
   imageUrl: string;
   price: string;
   change: number;
-  chartData: readonly object[];
+  chartData: object[];
+  range: number[];
 }
 
 const FavoriteItem: React.FC<FavoriteItemProps> = ({
@@ -19,6 +20,7 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({
   price,
   change,
   chartData,
+  range,
 }: FavoriteItemProps) => {
   return (
     <S.FavoriteItemWrapper>
@@ -37,6 +39,7 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({
           <FavoriteItemChart
             isPositive={checkPositive(change)}
             data={chartData}
+            range={range}
           />
         </S.PriceChart>
       </S.StatisticsElementsWrapper>

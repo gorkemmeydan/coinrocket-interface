@@ -10,6 +10,7 @@ const data = [
     current_price: '61190',
     market_cap_rank: 1,
     price_change_percentage_24h: 0.16007,
+    range: [50000, 65000],
     price: {
       data: [
         61152.799784161485, 61045.24581656004, 59902.95672683597,
@@ -78,6 +79,7 @@ const data = [
     current_price: '4061.76',
     market_cap_rank: 2,
     price_change_percentage_24h: -0.74502,
+    range: [3000, 4500],
     price: {
       data: [
         3817.584452483877, 3812.6067114794946, 3763.94099098818,
@@ -145,6 +147,7 @@ const data = [
     current_price: '475.42',
     market_cap_rank: 3,
     price_change_percentage_24h: -1.40432,
+    range: [400, 600],
     price: {
       data: [
         466.69711547119556, 467.4794264916041, 461.4049535053159,
@@ -224,6 +227,7 @@ const Favorites: React.FC = () => {
             price={coin.current_price}
             change={coin.price_change_percentage_24h}
             chartData={chartData}
+            range={coin.range}
           />
         );
       })}
