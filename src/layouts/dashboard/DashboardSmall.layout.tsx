@@ -1,12 +1,12 @@
 import React from 'react';
 import Panel from '../../components/panel/panel.component';
-import { Column } from './column-styled';
+import { Row } from '../row.styled';
 
 const DashboardSmall: React.FC = () => {
   return (
-    <Column>
+    <Row>
       <Panel isFullSize={false} isTop={false} />
-    </Column>
+    </Row>
   );
 };
 
