@@ -23,5 +23,5 @@ export const CryptoIcon = styled.img`
 export const CryptoName = styled.div`
   display: flex;
   height: 2vh;
-  font-size: 1.5rem;
+  font-size: calc(0.7vw + 0.7vmin);
 `;

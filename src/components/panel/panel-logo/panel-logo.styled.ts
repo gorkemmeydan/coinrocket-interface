@@ -8,7 +8,7 @@ export const PanelLogoWrapper = styled.div`
 `;
 
 export const CompanyName = styled.div`
-  font-size: calc(1vw + 2vmin);
+  font-size: calc(1vw + 1.2vmin);
 `;
 
 export const LogoContainer = styled.div`
