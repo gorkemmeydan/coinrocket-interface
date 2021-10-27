@@ -15,6 +15,8 @@ interface Props {
 }
 
 const CoinCardRowDetailed: React.FC<Props> = ({ data, holdings }: Props) => {
+  const hiddenVal = '*******';
+
   return (
     <S.RowDataWrapper>
       <S.RowData>{data.rank}</S.RowData>
@@ -45,14 +47,23 @@ const CoinCardRowDetailed: React.FC<Props> = ({ data, holdings }: Props) => {
             isPositive={checkPositive(data.change_7d)}
             data={data.price_7d}
             range={data.price_min_max}
+            showAnimation={false}
           />
         </S.PriceChartWrapper>
       </S.RowData>
       {holdings.hasData ? (
         <S.RowData>
           <Holdings
-            totalMoney={holdings.totalMoney}
-            totalAmount={holdings.totalAmount}
+            totalMoney={
+              holdings.isHidden
+                ? hiddenVal
+                : holdings.totalMoney.toFixed(2).toString()
+            }
+            totalAmount={
+              holdings.isHidden
+                ? hiddenVal
+                : holdings.totalAmount.toFixed(6).toString()
+            }
           />
         </S.RowData>
       ) : null}

@@ -9,7 +9,6 @@ const LoginForm = () => (
     initialValues={{ email: '', password: '' }}
     onSubmit={(values, { setSubmitting }) => {
       setTimeout(() => {
-        console.log('Logging in', values);
         setSubmitting(false);
       }, 500);
     }}

@@ -40,6 +40,7 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({
             isPositive={checkPositive(change)}
             data={chartData}
             range={range}
+            showAnimation={true}
           />
         </S.PriceChart>
       </S.StatisticsElementsWrapper>

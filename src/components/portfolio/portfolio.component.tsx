@@ -1,5 +1,4 @@
-import { addBasePath } from 'next/dist/shared/lib/router/router';
-import React from 'react';
+import React, { useState } from 'react';
 import { UserPortfolio, UserPortfolioItem } from '../../types/types';
 
 import PortfolioStats from './portfolio-stats/portfolio-stats.component';
@@ -35,6 +34,7 @@ const Item1: UserPortfolioItem = {
   },
   holdings: {
     hasData: true,
+    isHidden: true,
     totalMoney: 1800000,
     totalAmount: 15,
   },
@@ -55,11 +55,16 @@ const DummyPortfolio: UserPortfolio = {
   ],
 };
 const PortfolioLayout: React.FC = () => {
+  const isHiddenState = useState(true);
+
   return (
     <S.PortfolioWrapper>
-      <PortfolioStats />
+      <PortfolioStats isHiddenState={isHiddenState} />
       <S.HorizontalScrollable>
-        <PortfolioTable portfolio={DummyPortfolio} />
+        <PortfolioTable
+          portfolio={DummyPortfolio}
+          isHidden={isHiddenState[0]}
+        />
       </S.HorizontalScrollable>
     </S.PortfolioWrapper>
   );

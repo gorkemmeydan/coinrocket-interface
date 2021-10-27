@@ -3,8 +3,8 @@ import React from 'react';
 import * as S from './holdings.styled';
 
 interface HoldingsProps {
-  totalMoney: number;
-  totalAmount: number;
+  totalMoney: string;
+  totalAmount: string;
 }
 
 const Holdings: React.FC<HoldingsProps> = ({

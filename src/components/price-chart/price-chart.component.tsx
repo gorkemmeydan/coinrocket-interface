@@ -5,12 +5,16 @@ interface Props {
   isPositive: boolean;
   data: object[];
   range: number[];
+  showAnimation: boolean;
 }
 
-const PriceChart: React.FC<Props> = ({ isPositive, data, range }: Props) => {
+const PriceChart: React.FC<Props> = ({
+  isPositive,
+  data,
+  range,
+  showAnimation,
+}: Props) => {
   const plotColor = `${isPositive ? '#00F902' : '#F90000'}`;
-
-  console.log(data);
 
   return (
     <ResponsiveContainer width='100%' height='100%'>
@@ -22,7 +26,7 @@ const PriceChart: React.FC<Props> = ({ isPositive, data, range }: Props) => {
           stroke={plotColor}
           strokeWidth={2}
           dot={false}
-          isAnimationActive={true}
+          isAnimationActive={showAnimation}
           connectNulls={false}
         />
       </LineChart>

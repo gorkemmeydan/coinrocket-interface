@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import checkPositive from '../../../utils/checkPositive.util';
 
 import * as S from './portfolio-stats.styled';
 
-const PortfolioStats: React.FC = () => {
-  const [isHidden, setIsHidden] = useState(false);
+interface Props {
+  isHiddenState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+}
+
+const PortfolioStats: React.FC<Props> = ({ isHiddenState }: Props) => {
+  const [isHidden, setIsHidden] = isHiddenState;
+
   const iconSize = '30';
 
   const totalBalance = '49,453.96';

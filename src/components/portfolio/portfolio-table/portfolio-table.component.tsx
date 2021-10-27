@@ -2,14 +2,16 @@ import React from 'react';
 import Portfolio from '../../../pages/app/portfolio';
 import { UserPortfolio } from '../../../types/types';
 import CoinCard from '../../coin-card-row/coin-card-row.container';
+import _uniqueId from 'lodash/uniqueId';
 
 import * as S from './portfolio-table.styled';
 
 interface Props {
   portfolio: UserPortfolio;
+  isHidden: boolean;
 }
 
-const PortfolioTable: React.FC<Props> = ({ portfolio }: Props) => {
+const PortfolioTable: React.FC<Props> = ({ portfolio, isHidden }: Props) => {
   return (
     <S.PortofolioTableWrapper>
       <S.PortfolioTableHead>
@@ -26,9 +28,16 @@ const PortfolioTable: React.FC<Props> = ({ portfolio }: Props) => {
         </S.HeadRow>
       </S.PortfolioTableHead>
       <S.PortfolioTableBody>
-        {portfolio.portfolio.map((item) => (
-          <CoinCard isDetailed={true} portfolioItem={item} />
-        ))}
+        {portfolio.portfolio.map((item) => {
+          item.holdings.isHidden = isHidden;
+          return (
+            <CoinCard
+              key={_uniqueId('portfolio-row-')}
+              isDetailed={true}
+              portfolioItem={item}
+            />
+          );
+        })}
       </S.PortfolioTableBody>
     </S.PortofolioTableWrapper>
   );

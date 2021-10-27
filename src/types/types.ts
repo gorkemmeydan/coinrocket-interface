@@ -14,6 +14,7 @@ export interface CoinData {
 
 export interface CoinHoldings {
   hasData: boolean;
+  isHidden: boolean;
   totalMoney: number;
   totalAmount: number;
 }

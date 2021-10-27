@@ -10,7 +10,7 @@ export const PortfolioWrapper = styled.div`
 
 export const HorizontalScrollable = styled.div`
   background: black;
-  height: 75vh;
+  height: 70vh;
   width: 80vw;
   border-radius: 2vmin;
   overflow-y: auto;
