@@ -12,6 +12,10 @@ export interface CoinData {
   price_min_max: number[];
 }
 
+export interface MarketData {
+  marketData: CoinData[];
+}
+
 export interface CoinHoldings {
   hasData: boolean;
   isHidden: boolean;

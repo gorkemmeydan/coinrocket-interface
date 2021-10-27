@@ -4,15 +4,15 @@ import CoinCardRowDetailed from './coin-card-row-detailed.component';
 
 import * as S from './coin-card.-row.styled';
 
-interface PortfolioLayoutProps {
+interface CoinRowProps {
   isDetailed: boolean;
   portfolioItem: UserPortfolioItem;
 }
 
-const CoinCard: React.FC<PortfolioLayoutProps> = ({
+const CoinCard: React.FC<CoinRowProps> = ({
   isDetailed,
   portfolioItem,
-}: PortfolioLayoutProps) => {
+}: CoinRowProps) => {
   return (
     <>
       {isDetailed ? (
