@@ -18,6 +18,8 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/*add the modal wrapper*/}
+          <div id='modal-root'></div>
         </body>
       </Html>
     );

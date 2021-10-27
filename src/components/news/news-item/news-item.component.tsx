@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { NewsItem } from '../../../types/types';
+import Modal from '../../modal/modal.component';
+import NewsContent from '../news-content/news-content.component';
 
 import * as S from './news-item.styled';
 
@@ -9,9 +11,11 @@ interface Props {
 }
 
 const NewsItemContainer: React.FC<Props> = ({ data }: Props) => {
+  const isModalOpen = useState(false);
+
   return (
     <S.NewsItemWrapper>
-      <S.NewsTitleDataWrapper>
+      <S.NewsTitleDataWrapper onClick={() => isModalOpen[1](true)}>
         <S.NewsTitle>{data.title}</S.NewsTitle>
         <S.NewsDate>{data.published_at}</S.NewsDate>
       </S.NewsTitleDataWrapper>
@@ -22,6 +26,11 @@ const NewsItemContainer: React.FC<Props> = ({ data }: Props) => {
       >
         <HiOutlineExternalLink size={'2rem'} />
       </S.RedirectButtonWrapper>
+      <Modal
+        isOpenState={isModalOpen}
+        children={<NewsContent content={data.content} />}
+        title={data.title}
+      />
     </S.NewsItemWrapper>
   );
 };

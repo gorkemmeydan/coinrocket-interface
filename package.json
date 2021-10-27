@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/react": "17.0.31",
+    "@types/react-dom": "^17.0.10",
     "babel-plugin-styled-components": "^1.13.3",
     "eslint": "8.1.0",
     "eslint-config-next": "11.1.2",
