@@ -1,24 +1,23 @@
 import type { NextPage } from 'next';
-import DashboardLarge from '../../../layouts/dashboard/DashboardLarge.layout';
-import DashboardMedium from '../../../layouts/dashboard/DashboardMedium.layout';
-import DashboardMobile from '../../../layouts/dashboard/DashboardMobile.layout';
-import DashboardSmall from '../../../layouts/dashboard/DashboardSmall.layout';
+import DashboardLayout from '../../../components/dashboard/dashboard.component';
+import AppLayout from '../../../layouts/app/app.layout';
+
 import { Media, MediaContextProvider } from '../../../styles/media';
 
 const Dashboard: NextPage = () => {
   return (
     <MediaContextProvider>
       <Media at='mobile'>
-        <DashboardMobile />
+        <AppLayout size={'mobile'} children={<DashboardLayout />} />
       </Media>
       <Media at='small'>
-        <DashboardSmall />
+        <AppLayout size={'small'} children={<DashboardLayout />} />
       </Media>
       <Media at='medium'>
-        <DashboardMedium />
+        <AppLayout size={'medium'} children={<DashboardLayout />} />
       </Media>
       <Media greaterThanOrEqual='large'>
-        <DashboardLarge />
+        <AppLayout size={'large'} children={<DashboardLayout />} />
       </Media>
     </MediaContextProvider>
   );
