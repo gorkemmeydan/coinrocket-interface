@@ -27,6 +27,10 @@ export const NewsTitleDataWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1vh;
+
+  &: hover {
+    cursor: pointer;
+  }
 `;
 
 export const RedirectButtonWrapper = styled.a``;
