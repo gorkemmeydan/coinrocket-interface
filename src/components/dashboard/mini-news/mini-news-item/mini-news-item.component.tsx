@@ -2,14 +2,14 @@ import React from 'react';
 
 import { HiOutlineExternalLink } from 'react-icons/hi';
 
-import * as S from './news-item.styled';
+import * as S from './mini-news-item.styled';
 
 interface NewsItemProps {
   title: string;
   newUrl: string;
 }
 
-const NewsItem: React.FC<NewsItemProps> = ({
+const MiniNewsItem: React.FC<NewsItemProps> = ({
   title,
   newUrl,
 }: NewsItemProps) => {
@@ -27,4 +27,4 @@ const NewsItem: React.FC<NewsItemProps> = ({
   );
 };
 
-export default NewsItem;
+export default MiniNewsItem;

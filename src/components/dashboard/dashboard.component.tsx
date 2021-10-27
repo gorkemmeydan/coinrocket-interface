@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as S from './dashboard.styled';
 import Favorites from './favorites/favorites.component';
-import News from './news/news.component';
+import MiniNews from './mini-news/mini-news.component';
 import PortfolioOverview from './portfolio-overview/portfolio-overview.component';
 import Trending from './trending/trending.component';
 
@@ -13,7 +13,7 @@ const DashboardLayout: React.FC = () => {
       <S.PortfolioNewsTrensWrapper>
         <S.PortfolioNewsWrapper>
           <PortfolioOverview />
-          <News />
+          <MiniNews />
         </S.PortfolioNewsWrapper>
         <Trending />
       </S.PortfolioNewsTrensWrapper>

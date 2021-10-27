@@ -31,3 +31,15 @@ export interface UserPortfolioItem {
 export interface UserPortfolio {
   portfolio: UserPortfolioItem[];
 }
+
+export interface NewsItem {
+  id: string;
+  title: string;
+  published_at: string;
+  content: string;
+  newsUrl: string;
+}
+
+export interface News {
+  news: NewsItem[];
+}

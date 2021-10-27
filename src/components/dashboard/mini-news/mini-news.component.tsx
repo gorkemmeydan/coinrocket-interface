@@ -1,7 +1,7 @@
 import React from 'react';
-import NewsItem from './news-item/news-item.component';
+import MiniNewsItem from './mini-news-item/mini-news-item.component';
 
-import * as S from './news.styled';
+import * as S from './mini-news.styled';
 
 const dummyData = [
   {
@@ -22,17 +22,17 @@ const dummyData = [
   },
 ];
 
-const News: React.FC = () => {
+const MiniNews: React.FC = () => {
   return (
     <S.NewsWrapper>
       <S.NewsTitle>News</S.NewsTitle>
       <S.NewsContainer>
-        <NewsItem title={dummyData[0].title} newUrl={dummyData[0].newUrl} />
-        <NewsItem title={dummyData[1].title} newUrl={dummyData[1].newUrl} />
-        <NewsItem title={dummyData[2].title} newUrl={dummyData[2].newUrl} />
+        <MiniNewsItem title={dummyData[0].title} newUrl={dummyData[0].newUrl} />
+        <MiniNewsItem title={dummyData[1].title} newUrl={dummyData[1].newUrl} />
+        <MiniNewsItem title={dummyData[2].title} newUrl={dummyData[2].newUrl} />
       </S.NewsContainer>
     </S.NewsWrapper>
   );
 };
 
-export default News;
+export default MiniNews;

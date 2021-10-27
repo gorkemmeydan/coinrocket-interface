@@ -37,6 +37,3 @@ export const PanelWrapper = styled.div<PanelWrapperProps>`
 
   ${getPanelStyles}
 `;
-
-// ${(p: PanelWrapperProps) => (p.isTop ? TopPanel : null)}
-// ${(p: PanelWrapperProps) => (p.isSmallSize ? SmallPanel : null)};)}
