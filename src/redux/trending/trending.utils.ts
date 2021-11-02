@@ -1,6 +1,8 @@
 import { TrendingCoin } from '../../types/types';
 
-export const convertToTrendingItemsMap = (response): TrendingCoin[] => {
+export const convertToTrendingItemsMap = (response: {
+  data: { coins: any[] };
+}): TrendingCoin[] => {
   let coinMap: TrendingCoin[] = [];
 
   response.data.coins.forEach((element) => {

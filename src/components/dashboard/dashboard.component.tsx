@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAppDispatch } from '../../redux/hooks';
+import { fetchNewsStartAsync } from '../../redux/news/news.actions';
 import { fetchTrendingStartAsync } from '../../redux/trending/trending.actions';
-import TrendingActionTypes from '../../redux/trending/trending.types';
 
 import * as S from './dashboard.styled';
 import Favorites from './favorites/favorites.component';
-import MiniNews from './mini-news/mini-news.component';
+import MiniNewsContainer from './mini-news/mini-news.container';
 import PortfolioOverview from './portfolio-overview/portfolio-overview.component';
 import TrendingContainer from './trending/trending.container';
 
@@ -15,7 +14,8 @@ const DashboardLayout: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchTrendingStartAsync());
-  }, []);
+    dispatch(fetchNewsStartAsync());
+  }, [dispatch]);
 
   return (
     <S.DashboardWrapper>
@@ -23,7 +23,7 @@ const DashboardLayout: React.FC = () => {
       <S.PortfolioNewsTrensWrapper>
         <S.PortfolioNewsWrapper>
           <PortfolioOverview />
-          <MiniNews />
+          <MiniNewsContainer />
         </S.PortfolioNewsWrapper>
         <TrendingContainer />
       </S.PortfolioNewsTrensWrapper>
