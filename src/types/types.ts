@@ -43,3 +43,10 @@ export interface NewsItem {
 export interface News {
   news: NewsItem[];
 }
+
+export interface TrendingCoin {
+  id: number;
+  imageSrc: string;
+  coinName: string;
+  coinSymbol: string;
+}
