@@ -18,6 +18,8 @@ export const CrpytoIconNameWrapper = styled.div`
 
 export const CryptoIcon = styled.img`
   height: 5vh;
+  background: white;
+  border-radius: 1vmin;
 `;
 
 export const CryptoName = styled.div`

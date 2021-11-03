@@ -18,6 +18,7 @@ export const CoinIcon = styled.img`
   height: 30px;
   width: 30px;
   background: white;
+  border-radius: 5px;
 `;
 
 export const CoinNameAndSymbolWrapper = styled.div`

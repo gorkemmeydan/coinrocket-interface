@@ -1,4 +1,5 @@
 import React from 'react';
+import clearHtmlTags from '../../../utils/clearHtmlTags.util';
 
 import * as S from './news-content.styled';
 
@@ -12,7 +13,7 @@ const NewsContent: React.FC<NewsContentPorps> = ({
   return (
     <S.NewsContentWrapper>
       {content.split('\n').map((parag) => (
-        <p>{parag}</p>
+        <p>{clearHtmlTags(parag)}</p>
       ))}
     </S.NewsContentWrapper>
   );
