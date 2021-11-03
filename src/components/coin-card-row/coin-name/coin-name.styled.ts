@@ -17,6 +17,7 @@ export const CoinNameWrapper = styled.div<CoinNameWrapperProps>`
 export const CoinIcon = styled.img`
   height: 30px;
   width: 30px;
+  background: white;
 `;
 
 export const CoinNameAndSymbolWrapper = styled.div`

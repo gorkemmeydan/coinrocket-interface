@@ -1,14 +1,16 @@
 export interface CoinData {
+  id: string;
   rank: number;
   logoUrl: string;
   name: string;
   symbol: string;
   price: number;
+  price_change_24h: number;
   change_1h: number;
   change_24h: number;
   change_7d: number;
   market_cap: number;
-  price_7d: object[];
+  price_7d: number[];
   price_min_max: number[];
 }
 

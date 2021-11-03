@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../redux/hooks';
 import { fetchNewsStartAsync } from '../../redux/news/news.actions';
-import { News, NewsItem } from '../../types/types';
+import { NewsItem } from '../../types/types';
 import NewsItemContainer from './news-item/news-item.component';
 
 import * as S from './news.styled';

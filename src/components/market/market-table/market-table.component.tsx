@@ -1,16 +1,15 @@
 import React from 'react';
 import Portfolio from '../../../pages/app/portfolio';
-import { CoinHoldings, MarketData } from '../../../types/types';
+import { CoinData, CoinHoldings, MarketData } from '../../../types/types';
 import CoinCard from '../../coin-card-row/coin-card-row.container';
 import _uniqueId from 'lodash/uniqueId';
 
 import * as S from './market-table.styled';
+import { useAppSelector } from '../../../redux/hooks';
 
-interface Props {
-  data: MarketData;
-}
+const MarketTable: React.FC = () => {
+  const coins: CoinData[] = useAppSelector((state) => state.market.coins);
 
-const MarketTable: React.FC<Props> = ({ data }: Props) => {
   const emptyHoldings: CoinHoldings = {
     hasData: false,
     isHidden: false,
@@ -33,8 +32,8 @@ const MarketTable: React.FC<Props> = ({ data }: Props) => {
         </S.HeadRow>
       </S.MarketTableHead>
       <S.MarketTableBody>
-        {data.marketData.map((item) => {
-          const portfolioItem = { data: item, holdings: emptyHoldings };
+        {coins.map((coin) => {
+          const portfolioItem = { data: coin, holdings: emptyHoldings };
           return (
             <CoinCard
               key={_uniqueId('portfolio-row-')}

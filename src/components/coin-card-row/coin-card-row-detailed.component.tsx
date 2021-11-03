@@ -1,6 +1,8 @@
 import React from 'react';
 import { CoinData, CoinHoldings } from '../../types/types';
 import checkPositive from '../../utils/checkPositive.util';
+import numberToDollar from '../../utils/numberToDollar.util';
+import numberToObjectArray from '../../utils/numberToObjectArray.util';
 import { ColoredText } from '../portfolio/portfolio-stats/portfolio-stats.styled';
 import PriceChart from '../price-chart/price-chart.component';
 
@@ -26,26 +28,26 @@ const CoinCardRowDetailed: React.FC<Props> = ({ data, holdings }: Props) => {
           coinData={{
             logoUrl: data.logoUrl,
             name: data.name,
-            symbol: data.symbol,
+            symbol: data.symbol.toUpperCase(),
           }}
         />
       </S.RowData>
       <S.RowData>${data.price}</S.RowData>
       <S.RowData>
-        <PosNegText change={data.change_1h} />
+        <PosNegText change={Number(data.change_1h.toFixed(2))} />
       </S.RowData>
       <S.RowData>
-        <PosNegText change={data.change_24h} />
+        <PosNegText change={Number(data.change_24h.toFixed(2))} />
       </S.RowData>
       <S.RowData>
-        <PosNegText change={data.change_7d} />
+        <PosNegText change={Number(data.change_7d.toFixed(2))} />
       </S.RowData>
-      <S.RowData>{data.market_cap}</S.RowData>
+      <S.RowData>{numberToDollar(data.market_cap)}</S.RowData>
       <S.RowData>
         <S.PriceChartWrapper>
           <PriceChart
             isPositive={checkPositive(data.change_7d)}
-            data={data.price_7d}
+            data={numberToObjectArray(data.price_7d, 'key')}
             range={data.price_min_max}
             showAnimation={false}
           />

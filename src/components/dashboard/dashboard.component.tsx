@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { fetchMarketStartAsync } from '../../redux/market/market.actions';
 import { fetchNewsStartAsync } from '../../redux/news/news.actions';
 import { fetchTrendingStartAsync } from '../../redux/trending/trending.actions';
 
@@ -15,6 +16,7 @@ const DashboardLayout: React.FC = () => {
   useEffect(() => {
     dispatch(fetchTrendingStartAsync());
     dispatch(fetchNewsStartAsync());
+    dispatch(fetchMarketStartAsync());
   }, [dispatch]);
 
   return (
@@ -32,13 +34,3 @@ const DashboardLayout: React.FC = () => {
 };
 
 export default DashboardLayout;
-
-{
-  /* <S.PortfolioNewsTrensWrapper>
-  <S.PortfolioNewsWrapper>
-    <PortfolioOverview />
-    <News />
-  </S.PortfolioNewsWrapper>
-  <Trending />
-</S.PortfolioNewsTrensWrapper>; */
-}

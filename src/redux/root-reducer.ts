@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import marketReducer from './market/market.reducers';
 import newsReducer from './news/news.reducer';
 
 // import marketReducer from './market/market.reducer';
@@ -11,7 +12,7 @@ import trendingReducer from './trending/trending.reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['trending', 'news'],
+  whitelist: ['trending', 'news', 'market'],
 };
 
 // const rootReducer = combineReducers({
@@ -24,6 +25,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   trending: trendingReducer,
   news: newsReducer,
+  market: marketReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
