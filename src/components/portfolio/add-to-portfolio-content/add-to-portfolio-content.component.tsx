@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select, { SingleValue, StylesConfig } from 'react-select';
-import { useAppSelector } from '../../../../redux/hooks';
-import { addWatchlistStartAsync } from '../../../../redux/watchlist/watchlish.actions';
+import { useAppSelector } from '../../../redux/hooks';
+import { addWatchlistStartAsync } from '../../../redux/watchlist/watchlish.actions';
 import coinDataToSearch, {
   customOptionType,
-} from '../../../../utils/coinDataToSearch.util';
-import isCoinExistInCoinIdArr from '../../../../utils/isCoinExistInCoinIdArr.util';
+} from '../../../utils/coinDataToSearch.util';
+import isCoinExistInCoinIdArr from '../../../utils/isCoinExistInCoinIdArr.util';
 
-import * as S from './add-to-watchlist-content.styled';
+import * as S from './add-to-portfolio-content.styled';
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddToWatchlistContent: React.FC<Props> = ({ setModal }: Props) => {
+const AddToPortfolioContent: React.FC<Props> = ({ setModal }: Props) => {
   const coins = useAppSelector((state) => state.market.coins);
-  const watched_coins = useAppSelector(
-    (state) => state.watchlist.watched_coins
-  );
-
   const dispatch = useDispatch();
 
   const [selectedCoin, setSelectedCoin] = useState<string>('');
@@ -35,12 +31,14 @@ const AddToWatchlistContent: React.FC<Props> = ({ setModal }: Props) => {
     }
   };
 
+  const dummyPortfolio = ['bitcoin', 'ethereum'];
+
   const handleButtonSubmit = () => {
     if (selectedCoin && selectedCoin != '') {
-      if (isCoinExistInCoinIdArr(watched_coins, selectedCoin)) {
+      if (isCoinExistInCoinIdArr(dummyPortfolio, selectedCoin)) {
         setCoinExistsError(true);
       } else {
-        dispatch(addWatchlistStartAsync(selectedCoin));
+        // dispatch(addWatchlistStartAsync(selectedCoin));
         setModal(false);
       }
     } else {
@@ -71,23 +69,23 @@ const AddToWatchlistContent: React.FC<Props> = ({ setModal }: Props) => {
   };
 
   return (
-    <S.AddToWatchlistContentWrapper>
+    <S.AddToPortfolioContentWrapper>
       <Select
         styles={selectStyle}
         options={coinDataToSearch(coins)}
         onChange={handleChange}
       />
-      <S.AddToWatchlistButton onClick={handleButtonSubmit}>
-        Add to watchlist
-      </S.AddToWatchlistButton>
+      <S.AddToPortfolioButton onClick={handleButtonSubmit}>
+        Add to portfolio
+      </S.AddToPortfolioButton>
       {selectCoinError ? (
         <S.ErrorText>Please select coin from the list</S.ErrorText>
       ) : null}
       {coinExistsError ? (
-        <S.ErrorText>Coin already exists in your watchlist</S.ErrorText>
+        <S.ErrorText>Coin already exists in your portfolio</S.ErrorText>
       ) : null}
-    </S.AddToWatchlistContentWrapper>
+    </S.AddToPortfolioContentWrapper>
   );
 };
 
-export default AddToWatchlistContent;
+export default AddToPortfolioContent;

@@ -33,7 +33,7 @@ const Favorites: React.FC = () => {
             key={_uniqueId('watchlist-item')}
             imageUrl={!isEmpty ? coins[i].logoUrl : ''}
             price={!isEmpty ? coins[i].price : 0}
-            change={!isEmpty ? coins[i].change_24h : 0}
+            change={!isEmpty ? coins[i].change_7d : 0}
             chartData={
               !isEmpty ? arrayToObjectArray(coins[i].price_7d, 'key') : [{}]
             }

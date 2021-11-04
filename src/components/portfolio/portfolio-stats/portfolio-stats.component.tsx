@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import checkPositive from '../../../utils/checkPositive.util';
+import Modal from '../../modal/modal.component';
+import AddToPortfolioContent from '../add-to-portfolio-content/add-to-portfolio-content.component';
 
 import * as S from './portfolio-stats.styled';
 
@@ -11,6 +13,7 @@ interface Props {
 
 const PortfolioStats: React.FC<Props> = ({ isHiddenState }: Props) => {
   const [isHidden, setIsHidden] = isHiddenState;
+  const isModalOpen = useState(false);
 
   const iconSize = '30';
 
@@ -55,6 +58,14 @@ const PortfolioStats: React.FC<Props> = ({ isHiddenState }: Props) => {
             )}
           </S.TextAndColorWrapper>
         </S.Stat>
+        <S.AddNewCoinButton onClick={() => isModalOpen[1](true)}>
+          Add new coin
+        </S.AddNewCoinButton>
+        <Modal
+          isOpenState={isModalOpen}
+          children={<AddToPortfolioContent setModal={isModalOpen[1]} />}
+          title='Add new coin to portfolio'
+        />
       </S.StatsWrapper>
     </S.PortFolioStatsWrapper>
   );

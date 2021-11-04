@@ -74,3 +74,14 @@ export const ColoredText = styled.div<ColoredTextProps>`
   font-size: calc(0.9vw + 0.9vmin);
   color: ${(p: ColoredTextProps) => (p.isPositive ? 'green' : 'red')};
 `;
+
+export const AddNewCoinButton = styled.div`
+  padding: 1vmin;
+  border-radius: 2vmin;
+  display: flex;
+  align-items: center;
+  color: white;
+  background: green;
+  font-size: calc(0.9vw + 0.9vmin);
+  cursor: pointer;
+`;

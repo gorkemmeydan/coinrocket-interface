@@ -42,7 +42,7 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({
             <S.PriceItems>
               <S.CoinPrice>${price}</S.CoinPrice>
               <S.PriceChange>
-                {Number(change).toFixed(2)}% in 24 Hours
+                {Number(change).toFixed(2)}% in 7 Days
               </S.PriceChange>
             </S.PriceItems>
             <S.PriceChart>
