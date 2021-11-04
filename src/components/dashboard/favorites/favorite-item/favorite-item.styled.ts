@@ -68,3 +68,17 @@ export const PriceChart = styled.div`
   width: 8vw;
   height: 5vw;
 `;
+
+export const AddToWatchlistButton = styled.div`
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: black;
+  color: white;
+  border: dashed 1px white;
+  border-radius: 1vmin;
+  cursor: pointer;
+`;

@@ -8,6 +8,7 @@ import * as S from './portfolio.styled';
 
 const Item1: UserPortfolioItem = {
   data: {
+    id: 'btc',
     rank: 1,
     logoUrl:
       'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
@@ -18,17 +19,11 @@ const Item1: UserPortfolioItem = {
     change_24h: 3,
     change_7d: -0.2,
     market_cap: 999999,
+    price_change_24h: 31,
     price_7d: [
-      { key: 61152.799784161485 },
-      { key: 58045.24581656004 },
-      { key: 59902.95672683597 },
-      { key: 59498.5883413694 },
-      { key: 60802.77417909998 },
-      { key: 61318.486407422024 },
-      { key: 59318.486407422024 },
-      { key: 60318.486407422024 },
-      { key: 55486.407422024 },
-      { key: 60486.407422024 },
+      61152.799784161485, 58045.24581656004, 59902.95672683597,
+      59498.5883413694, 60802.77417909998, 61318.48640742202, 59318.48640742202,
+      60318.48640742202, 55486.407422024, 60486.407422024,
     ],
     price_min_max: [50000, 65000],
   },

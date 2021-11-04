@@ -27,6 +27,8 @@ export const fetchNewsFailure = (error: any) => ({
 
 export const fetchNewsStartAsync: AppThunk = () => {
   return (dispatch: Dispatch<Action>) => {
+    dispatch(fetchNewsStart());
+
     axios
       .get('https://data.messari.io/api/v1/news')
       .then(function (response: { data: { data: any[] } }) {

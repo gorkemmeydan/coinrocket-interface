@@ -2,8 +2,7 @@ import React from 'react';
 import { CoinData, CoinHoldings } from '../../types/types';
 import checkPositive from '../../utils/checkPositive.util';
 import numberToDollar from '../../utils/numberToDollar.util';
-import numberToObjectArray from '../../utils/numberToObjectArray.util';
-import { ColoredText } from '../portfolio/portfolio-stats/portfolio-stats.styled';
+import numberToObjectArray from '../../utils/arrayToObjectArray.util';
 import PriceChart from '../price-chart/price-chart.component';
 
 import * as S from './coin-card.-row.styled';

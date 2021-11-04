@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import { createStore, applyMiddleware, Store, Action } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import { persistStore } from 'redux-persist';
 import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 
@@ -7,31 +9,15 @@ import rootReducer from './root-reducer';
 
 let store: Store;
 
-interface StateInterface {
-  trending?:
-    | {
-        readonly trendingCoins: {
-          id: number;
-          imageSrc: string;
-          coinName: string;
-          coinSymbol: string;
-        }[];
-        readonly loading: boolean;
-        readonly error?: string | undefined;
-      }
-    | undefined;
-  _persist?: { version: number; rehydrated: boolean } | undefined;
-}
-
-export const initStore = (initialState: StateInterface) => {
+export const initStore = (initialState) => {
   return createStore(
     rootReducer,
     initialState,
-    applyMiddleware(thunkMiddleware)
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
   );
 };
 
-export const initializeStore = (preloadedState: StateInterface) => {
+export const initializeStore = (preloadedState) => {
   let _store = store ?? initStore(preloadedState);
 
   // After navigating to a page with an initial Redux state, merge that state
@@ -53,7 +39,7 @@ export const initializeStore = (preloadedState: StateInterface) => {
   return _store;
 };
 
-export function useStore(initialState: StateInterface) {
+export function useStore(initialState) {
   const store = useMemo(() => initializeStore(initialState), [initialState]);
   return store;
 }

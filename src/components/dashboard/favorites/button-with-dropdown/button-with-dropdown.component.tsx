@@ -1,11 +1,22 @@
 import React, { useRef, useState } from 'react';
 import { BsThreeDotsVertical, BsX } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
 import useOnClickOutside from '../../../../hooks/useOnClickOutside.hook';
+import { removeWatchlistStartAsync } from '../../../../redux/watchlist/watchlish.actions';
 
 import * as S from './button-with-dropdown.styled';
 
-const ButtonWithDropDown: React.FC = () => {
+interface Props {
+  coin_id: string;
+}
+
+const ButtonWithDropDown: React.FC<Props> = ({ coin_id }: Props) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleRemove = () => {
+    dispatch(removeWatchlistStartAsync(coin_id));
+  };
 
   // Create a ref that we add to the element for which we want to detect outside clicks
   const ref = useRef<HTMLDivElement>(null);
@@ -25,7 +36,9 @@ const ButtonWithDropDown: React.FC = () => {
           <BsX size={'25'} />
         )}
       </S.DropdownButton>
-      {isDropdownOpen ? <S.DropDownContent>Remove</S.DropDownContent> : null}
+      {isDropdownOpen ? (
+        <S.DropDownContent onClick={handleRemove}>Remove</S.DropDownContent>
+      ) : null}
     </S.DropdownWrapper>
   );
 };
