@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const MarketTableWrapper = styled.table`
+  background: var(--background);
+  color: var(--text);
   width: 95%;
-  background: black;
-  color: white;
   margin: 1vh;
   margin-top: 0vh;
   border-radius: 2vmin;

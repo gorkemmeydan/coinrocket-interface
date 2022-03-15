@@ -4,11 +4,9 @@ export interface CoinData {
   logoUrl: string;
   name: string;
   symbol: string;
-  price: number;
+  price: string;
   price_change_24h: number;
-  change_1h: number;
   change_24h: number;
-  change_7d: number;
   market_cap: number;
   price_7d: number[];
   price_min_max: number[];
@@ -19,19 +17,25 @@ export interface MarketData {
 }
 
 export interface CoinHoldings {
-  hasData: boolean;
   isHidden: boolean;
   totalMoney: number;
   totalAmount: number;
 }
 
-export interface UserPortfolioItem {
-  data: CoinData;
-  holdings: CoinHoldings;
+export interface CoinTransactionsItem {
+  id: number;
+  coinName: string;
+  quantity: number;
+  transactionDate: Date;
+  positive: boolean;
 }
-
-export interface UserPortfolio {
-  portfolio: UserPortfolioItem[];
+export interface UserPortfolioItem {
+  id: number;
+  coinName: string;
+  lastWeeksHoldings: number[];
+  coinTransactions: CoinTransactionsItem[];
+  coinData?: CoinData;
+  graphData?: number[];
 }
 
 export interface NewsItem {
@@ -51,4 +55,23 @@ export interface TrendingCoin {
   imageSrc: string;
   coinName: string;
   coinSymbol: string;
+}
+
+export interface SignUpData {
+  fullName: string;
+  email: string;
+  password: string;
+}
+
+export interface WatchlistItem {
+  id: number;
+  coinName: string;
+  coinData?: CoinData;
+}
+export interface UserHoldings {
+  id: number;
+  email: string;
+  portfolio: UserPortfolioItem[];
+  watchList: WatchlistItem[];
+  lastWeekGraphData?: number[];
 }

@@ -11,6 +11,13 @@ export const LoginContentWrapper = styled.div`
   min-height: 660px;
 `;
 
+export const QueryMessage = styled.h2`
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+`;
+
 export const LoginTitle = styled.h1`
   color: #fff;
   font-size: 32px;

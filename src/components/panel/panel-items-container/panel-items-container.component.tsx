@@ -5,7 +5,6 @@ import {
   AiFillWallet,
   AiOutlineBarChart,
   AiFillMail,
-  AiFillSetting,
 } from 'react-icons/ai';
 
 import LeftPanelItem from '../panel-item/panel-item.component';
@@ -48,12 +47,6 @@ const PanelItemsContainer: React.FC<PanelItemsContainerProps> = ({
         icon={<AiFillMail size={iconSize} />}
         text={'News'}
         linkPath={'/app/news'}
-      />
-      <LeftPanelItem
-        displayText={isFullSize}
-        icon={<AiFillSetting size={iconSize} />}
-        text={'Settings'}
-        linkPath={'/app/settings'}
       />
     </S.PanelItemsContainerWrapper>
   );

@@ -8,13 +8,16 @@ import checkPositive from '../../../../utils/checkPositive.util';
 import * as S from './favorite-item.styled';
 import Modal from '../../../modal/modal.component';
 import AddToWatchlistContent from '../add-to-watchlist-content/add-to-watchlist-content.component';
+import { useHoldings } from '../../../../contexts/holdings.context';
+import Spinner from '../../../spinner/spinner.component';
 
-interface FavoriteItemProps {
+export interface FavoriteItemProps {
   isEmpty: boolean;
   imageUrl: string;
   price: string;
   change: number;
   chartData: object[];
+  priceArray: number[];
   range: number[];
   coin_id: string;
 }
@@ -25,29 +28,37 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({
   price,
   change,
   chartData,
+  priceArray,
   range,
   coin_id,
 }: FavoriteItemProps) => {
   const isModalOpen = useState(false);
+  const [itemLoading, setItemLoading] = useState(false);
+  const { holdingsLoading } = useHoldings();
 
   return (
     <S.FavoriteItemWrapper>
-      {!isEmpty ? (
+      {holdingsLoading || itemLoading ? (
+        <Spinner />
+      ) : !isEmpty ? (
         <>
           <S.IconAndButtonWrapper>
             <S.CryptoIcon src={imageUrl} />
-            <ButtonWithDropDown coin_id={coin_id} />
+            <ButtonWithDropDown
+              coin_id={coin_id}
+              setItemLoading={setItemLoading}
+            />
           </S.IconAndButtonWrapper>
           <S.StatisticsElementsWrapper>
             <S.PriceItems>
               <S.CoinPrice>${price}</S.CoinPrice>
               <S.PriceChange>
-                {Number(change).toFixed(2)}% in 7 Days
+                {Number(change).toFixed(2)}% in 7 days
               </S.PriceChange>
             </S.PriceItems>
             <S.PriceChart>
               <PriceChart
-                isPositive={checkPositive(change)}
+                isPositive={checkPositive(priceArray)}
                 data={chartData}
                 range={range}
                 showAnimation={false}
@@ -62,7 +73,12 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({
           </S.AddToWatchlistButton>
           <Modal
             isOpenState={isModalOpen}
-            children={<AddToWatchlistContent setModal={isModalOpen[1]} />}
+            children={
+              <AddToWatchlistContent
+                setModal={isModalOpen[1]}
+                setItemLoading={setItemLoading}
+              />
+            }
             title='Add new coin to watchlist'
           />
         </>

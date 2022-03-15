@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const NewsWrapper = styled.div`
-  background: black;
-  color: white;
+  background: var(--background);
+  color: var(--text);
 
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ export const NewsContainer = styled.div`
 `;
 
 export const HorizontalScrollable = styled.div`
-  background: black;
+  background: var(--background);
   height: 88vh;
   width: 80vw;
   border-radius: 2vmin;

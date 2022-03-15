@@ -4,10 +4,10 @@ import LoginContent from '../../components/login-content/login-content.component
 
 const Login: NextPage = () => {
   return (
-    <div>
+    <>
       <Header withLoginButton={false} withHomePageLink={true} />
       <LoginContent />
-    </div>
+    </>
   );
 };
 

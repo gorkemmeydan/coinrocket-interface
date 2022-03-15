@@ -1,8 +1,7 @@
 // we use zero as a positive for plotting
-const checkPositive = (num: number): boolean => {
-  const sign = Math.sign(num);
-  if (sign === -1) return false;
+const checkPositiveFromArr = (num: number[]): boolean => {
+  if (num[0] > num[num.length - 1]) return false;
   return true;
 };
 
-export default checkPositive;
+export default checkPositiveFromArr;

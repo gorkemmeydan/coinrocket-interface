@@ -14,8 +14,8 @@ export const ModalOverlay = styled.div`
 
 export const ModalWrapper = styled.div`
   border: 2px solid grey;
-  background: black;
-  color: white;
+  background: var(--background);
+  color: var(--text);
   width: 50vw;
   height: 50vh;
   min-width: 500px;
@@ -38,7 +38,8 @@ export const ModalTitle = styled.div`
 
 export const ModalBody = styled.div`
   padding-top: 0.5vh;
-  background: black;
+  background: var(--background);
+  color: var(--text);
   height: 80%;
   width: 100%;
   border-radius: 2vmin;

@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const NewsWrapper = styled.div`
+  background: var(--background);
+  color: var(--text);
+
   height: 21vh;
   width: 60vw;
-  background: black;
   border-radius: 2vmin;
 
   display: flex;
   flex-direction: column;
   padding: 2vmin;
-
-  color: white;
 `;
 
 export const NewsTitle = styled.div`

@@ -9,7 +9,8 @@ export const PortfolioWrapper = styled.div`
 `;
 
 export const HorizontalScrollable = styled.div`
-  background: black;
+  background: var(--background);
+
   height: 70vh;
   width: 80vw;
   border-radius: 2vmin;

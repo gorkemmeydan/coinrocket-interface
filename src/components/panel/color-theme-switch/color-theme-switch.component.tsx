@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import { useTheme } from 'next-themes';
+import React, { useEffect } from 'react';
 
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
-import { boolean } from 'yup/lib/locale';
 
 import * as S from './color-theme-switch.styled';
 
 const ColorThemeSwitch: React.FC = () => {
-  //TODO: get state from store
-  const [isNightTheme, setNightTheme] = useState(true);
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
 
   const iconSize = '30';
 
   return (
-    <S.ColorThemeSwitchWrapper onClick={() => setNightTheme(!isNightTheme)}>
-      {isNightTheme ? (
+    <S.ColorThemeSwitchWrapper onClick={() => toggleTheme()}>
+      {theme === ('dark' || 'system') ? (
         <BsFillMoonStarsFill size={iconSize} />
       ) : (
-        <BsFillSunFill size={iconSize} />
+        <BsFillSunFill style={{ color: 'black' }} size={iconSize} />
       )}
     </S.ColorThemeSwitchWrapper>
   );

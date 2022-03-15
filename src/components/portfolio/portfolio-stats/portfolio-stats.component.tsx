@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
 
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
-import checkPositive from '../../../utils/checkPositive.util';
+import calculateChangePercent from '../../../utils/calculateChangePercent';
 import Modal from '../../modal/modal.component';
+import Spinner from '../../spinner/spinner.component';
 import AddToPortfolioContent from '../add-to-portfolio-content/add-to-portfolio-content.component';
 
 import * as S from './portfolio-stats.styled';
 
 interface Props {
+  actionLoadingState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
   isHiddenState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+  lastWeeksPriceData: number[];
 }
 
-const PortfolioStats: React.FC<Props> = ({ isHiddenState }: Props) => {
+const PortfolioStats: React.FC<Props> = ({
+  actionLoadingState,
+  isHiddenState,
+  lastWeeksPriceData,
+}: Props) => {
   const [isHidden, setIsHidden] = isHiddenState;
+  const [actionLoading, setActionLoading] = actionLoadingState;
+
   const isModalOpen = useState(false);
 
   const iconSize = '30';
 
-  const totalBalance = '49,453.96';
-  const portfolioChange = '910.18';
-  const portfolioPercent = 1.87;
+  const todaysBalance = lastWeeksPriceData[lastWeeksPriceData.length - 1];
+  const yesterdaysBalance = lastWeeksPriceData[lastWeeksPriceData.length - 2];
+
+  const totalBalance = todaysBalance.toFixed(4).toString();
+  const portfolioChange = (todaysBalance - yesterdaysBalance)
+    .toFixed(4)
+    .toString();
+  const changePer = calculateChangePercent(yesterdaysBalance, todaysBalance);
+  let portfolioPercent = changePer.toFixed(2).toString();
+  const isPositive = changePer >= 0;
   const hidden = '*********';
 
   const toggleHidden = () => {
@@ -39,34 +55,44 @@ const PortfolioStats: React.FC<Props> = ({ isHiddenState }: Props) => {
         </S.HidePortfolioButton>
       </S.PortfolioHeaderWrapper>
 
-      <S.StatsWrapper>
-        <S.Stat>
-          <S.MoneyField>${!isHidden ? totalBalance : hidden}</S.MoneyField>
-          <S.TextField>Total Balance</S.TextField>
-        </S.Stat>
-        <S.Stat>
-          <S.MoneyField>${!isHidden ? portfolioChange : hidden}</S.MoneyField>
-          <S.TextAndColorWrapper>
-            <S.TextField>24h Portfolio Change</S.TextField>
-            {isHidden ? (
-              <S.TextField>{hidden}</S.TextField>
-            ) : (
-              <S.ColoredText isPositive={checkPositive(portfolioPercent)}>
-                ({checkPositive(portfolioPercent) ? '+' : ''}
-                {portfolioPercent}%)
-              </S.ColoredText>
-            )}
-          </S.TextAndColorWrapper>
-        </S.Stat>
-        <S.AddNewCoinButton onClick={() => isModalOpen[1](true)}>
-          Add new coin
-        </S.AddNewCoinButton>
-        <Modal
-          isOpenState={isModalOpen}
-          children={<AddToPortfolioContent setModal={isModalOpen[1]} />}
-          title='Add new coin to portfolio'
-        />
-      </S.StatsWrapper>
+      {actionLoading ? (
+        <Spinner />
+      ) : (
+        <S.StatsWrapper>
+          <S.Stat>
+            <S.MoneyField>$ {!isHidden ? totalBalance : hidden}</S.MoneyField>
+            <S.TextField>Total Balance</S.TextField>
+          </S.Stat>
+          <S.Stat>
+            <S.MoneyField>
+              $ {!isHidden ? portfolioChange : hidden}
+            </S.MoneyField>
+            <S.TextAndColorWrapper>
+              <S.TextField>24h Portfolio Change</S.TextField>
+              {isHidden ? (
+                <S.TextField>{hidden}</S.TextField>
+              ) : (
+                <S.ColoredText isPositive={isPositive}>
+                  {portfolioPercent}%
+                </S.ColoredText>
+              )}
+            </S.TextAndColorWrapper>
+          </S.Stat>
+          <S.AddNewCoinButton onClick={() => isModalOpen[1](true)}>
+            Add new coin
+          </S.AddNewCoinButton>
+          <Modal
+            isOpenState={isModalOpen}
+            children={
+              <AddToPortfolioContent
+                setActionLoading={setActionLoading}
+                setModal={isModalOpen[1]}
+              />
+            }
+            title='Add new coin to portfolio'
+          />
+        </S.StatsWrapper>
+      )}
     </S.PortFolioStatsWrapper>
   );
 };

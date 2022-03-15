@@ -7,7 +7,7 @@ export const DropdownWrapper = styled.div`
 
 export const DropdownButton = styled.button`
   background: none;
-  color: white;
+  color: var(--text);
   border: none;
 
   &: hover {
@@ -16,9 +16,11 @@ export const DropdownButton = styled.button`
 `;
 
 export const DropDownContent = styled.div`
-  color: white;
+  background: var(--background);
+  color: var(--text);
+  border: 1px solid var(--text);
+
   position: absolute;
-  background: #1d1818;
   padding: 5px;
   border-radius: 4px;
 

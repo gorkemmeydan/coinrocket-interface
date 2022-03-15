@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchMarketStartAsync } from '../../redux/market/market.actions';
-import { CoinData, MarketData } from '../../types/types';
+import React from 'react';
+import { useMarket } from '../../contexts/market.context';
+import Spinner from '../spinner/spinner.component';
 import MarketTable from './market-table/market-table.component';
 
 import * as S from './market.styled';
 
 const MarketLayout: React.FC = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchMarketStartAsync());
-  }, [dispatch]);
+  const { marketLoading } = useMarket();
 
   return (
     <S.MarketWrapper>
       <S.Title>Cryptocurrency Prices by Market Cap</S.Title>
-      <S.HorizontalScrollable>
-        <MarketTable />
-      </S.HorizontalScrollable>
+      {marketLoading ? (
+        <Spinner />
+      ) : (
+        <S.HorizontalScrollable>
+          <MarketTable />
+        </S.HorizontalScrollable>
+      )}
     </S.MarketWrapper>
   );
 };

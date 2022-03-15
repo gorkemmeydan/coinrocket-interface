@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import Select, { SingleValue, StylesConfig } from 'react-select';
-import { useAppSelector } from '../../../../redux/hooks';
-import { addWatchlistStartAsync } from '../../../../redux/watchlist/watchlish.actions';
+import { useHoldings } from '../../../../contexts/holdings.context';
+import { useMarket } from '../../../../contexts/market.context';
+import addToWatchlistAndRefreshData from '../../../../services/addToWatchlistAndRefreshData';
 import coinDataToSearch, {
   customOptionType,
 } from '../../../../utils/coinDataToSearch.util';
@@ -12,15 +12,16 @@ import * as S from './add-to-watchlist-content.styled';
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setItemLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddToWatchlistContent: React.FC<Props> = ({ setModal }: Props) => {
-  const coins = useAppSelector((state) => state.market.coins);
-  const watched_coins = useAppSelector(
-    (state) => state.watchlist.watched_coins
-  );
-
-  const dispatch = useDispatch();
+const AddToWatchlistContent: React.FC<Props> = ({
+  setModal,
+  setItemLoading,
+}: Props) => {
+  const { holdings, setHoldings } = useHoldings();
+  const watchedCoins = holdings?.watchList.map((w) => w.coinName);
+  const { coins } = useMarket();
 
   const [selectedCoin, setSelectedCoin] = useState<string>('');
   const [selectCoinError, setSelectCoinError] = useState<boolean>(false);
@@ -35,12 +36,19 @@ const AddToWatchlistContent: React.FC<Props> = ({ setModal }: Props) => {
     }
   };
 
-  const handleButtonSubmit = () => {
+  const handleButtonSubmit = async () => {
     if (selectedCoin && selectedCoin != '') {
-      if (isCoinExistInCoinIdArr(watched_coins, selectedCoin)) {
+      if (
+        isCoinExistInCoinIdArr(watchedCoins ? watchedCoins : [], selectedCoin)
+      ) {
         setCoinExistsError(true);
       } else {
-        dispatch(addWatchlistStartAsync(selectedCoin));
+        setItemLoading(true);
+        await addToWatchlistAndRefreshData({
+          coinName: selectedCoin,
+          holdings: holdings,
+          setHoldings: setHoldings,
+        });
         setModal(false);
       }
     } else {
@@ -74,7 +82,7 @@ const AddToWatchlistContent: React.FC<Props> = ({ setModal }: Props) => {
     <S.AddToWatchlistContentWrapper>
       <Select
         styles={selectStyle}
-        options={coinDataToSearch(coins)}
+        options={coins ? coinDataToSearch(coins) : undefined}
         onChange={handleChange}
       />
       <S.AddToWatchlistButton onClick={handleButtonSubmit}>

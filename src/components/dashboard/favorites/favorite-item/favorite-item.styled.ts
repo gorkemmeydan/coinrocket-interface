@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const FavoriteItemWrapper = styled.div`
-  background: #000000;
+  background: var(--background);
+  color: var(--text);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +11,7 @@ export const FavoriteItemWrapper = styled.div`
   height: 20vh;
   width: 20vw;
   border-radius: 25px;
-  padding: 15px;
+  padding: 1rem;
 `;
 
 export const IconAndButtonWrapper = styled.div`
@@ -22,14 +24,14 @@ export const IconAndButtonWrapper = styled.div`
 
 export const CryptoIcon = styled.img`
   height: 5vh;
-  background: white;
+  background: var(--background);
   border-radius: 1vmin;
 `;
 
 export const DropdownButton = styled.button`
   background: none;
-  color: white;
-  border: none;
+  color: var(--text);
+  border: 1px solid var(--text);
 
   &: hover {
     cursor: pointer;
@@ -54,7 +56,7 @@ export const PriceItems = styled.div`
 export const CoinPrice = styled.div`
   font-size: 2rem;
   font-weight: bold;
-  color: white;
+  color: var(--text);
 `;
 
 export const PriceChange = styled.div`
@@ -70,15 +72,16 @@ export const PriceChart = styled.div`
 `;
 
 export const AddToWatchlistButton = styled.div`
+  background: var(--background);
+  color: var(--text);
+
   width: 100%;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: black;
-  color: white;
-  border: dashed 1px white;
+  border: dashed 1px var(--text);
   border-radius: 1vmin;
   cursor: pointer;
 `;

@@ -5,8 +5,9 @@ interface CoinNameWrapperProps {
 }
 
 export const CoinNameWrapper = styled.div<CoinNameWrapperProps>`
+  color: var(--text);
+
   display: flex;
-  color: white;
   align-items: center;
   gap: 2vw;
 

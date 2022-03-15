@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const PortofolioTableWrapper = styled.table`
+  background: var(--background);
+  color: var(--text);
+
   width: 95%;
   flex: 1;
-  background: black;
-  color: white;
   margin: 1vh;
   margin-top: 0vh;
   border-radius: 2vmin;

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const PortFolioStatsWrapper = styled.div`
-  background: black;
-  color: white;
+  background: var(--background);
+  color: var(--text);
+
   padding: 2vmin;
   margin: 1vh;
   border-radius: 2vmin;
@@ -47,7 +48,7 @@ export const Stat = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2vh;
-  border: solid white;
+  border: solid var(--text);
   border-radius: 2vmin;
   padding: 1.5vmin;
 `;

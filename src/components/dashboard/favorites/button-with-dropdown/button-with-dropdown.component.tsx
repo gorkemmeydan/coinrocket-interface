@@ -1,21 +1,30 @@
 import React, { useRef, useState } from 'react';
 import { BsThreeDotsVertical, BsX } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
+import { useHoldings } from '../../../../contexts/holdings.context';
 import useOnClickOutside from '../../../../hooks/useOnClickOutside.hook';
-import { removeWatchlistStartAsync } from '../../../../redux/watchlist/watchlish.actions';
+import removeFromWatchlistAndClearData from '../../../../services/removeFromWatchlistAndClearData';
 
 import * as S from './button-with-dropdown.styled';
 
 interface Props {
   coin_id: string;
+  setItemLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ButtonWithDropDown: React.FC<Props> = ({ coin_id }: Props) => {
+const ButtonWithDropDown: React.FC<Props> = ({
+  coin_id,
+  setItemLoading,
+}: Props) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const dispatch = useDispatch();
+  const { holdings, setHoldings } = useHoldings();
 
-  const handleRemove = () => {
-    dispatch(removeWatchlistStartAsync(coin_id));
+  const handleRemove = async () => {
+    setItemLoading(true);
+    await removeFromWatchlistAndClearData({
+      coinName: coin_id,
+      holdings: holdings,
+      setHoldings: setHoldings,
+    });
   };
 
   // Create a ref that we add to the element for which we want to detect outside clicks

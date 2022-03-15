@@ -1,30 +1,32 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../redux/hooks';
-import { fetchNewsStartAsync } from '../../redux/news/news.actions';
+import React from 'react';
+import { useNews } from '../../contexts/news.context';
 import { NewsItem } from '../../types/types';
+import Spinner from '../spinner/spinner.component';
 import NewsItemContainer from './news-item/news-item.component';
 
 import * as S from './news.styled';
 
 const NewsLayout: React.FC = () => {
-  const dispatch = useDispatch();
-  const news = useAppSelector((state) => state.news.news);
-
-  useEffect(() => {
-    dispatch(fetchNewsStartAsync());
-  }, [dispatch]);
+  const { newsLoading, news } = useNews();
 
   return (
     <S.NewsWrapper>
       <S.Title>News</S.Title>
-      <S.HorizontalScrollable>
-        <S.NewsContainer>
-          {news.map((newsItem: NewsItem) => (
-            <NewsItemContainer key={newsItem.id} data={newsItem} />
-          ))}
-        </S.NewsContainer>
-      </S.HorizontalScrollable>
+      {newsLoading ? (
+        <Spinner />
+      ) : (
+        <S.HorizontalScrollable>
+          <S.NewsContainer>
+            {news ? (
+              news.map((newsItem: NewsItem) => (
+                <NewsItemContainer key={newsItem.id} data={newsItem} />
+              ))
+            ) : (
+              <Spinner />
+            )}
+          </S.NewsContainer>
+        </S.HorizontalScrollable>
+      )}
     </S.NewsWrapper>
   );
 };

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const RowData = styled.td``;
 
 export const RowDataWrapper = styled.tr`
-  box-shadow: 0px 2px 0px 0px rgba(255, 255, 255, 0.99);
+  box-shadow: 0px 2px 0px 0px var(--text);
   height: 8vh;
 `;
 

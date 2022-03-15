@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const TrendingItemWrapper = styled.div`
-  color: white;
-  border: solid white;
+  background: var(--background);
+  color: var(--text);
+
+  border: solid var(--text);
   border-width: thin;
   border-radius: 1vh;
   padding: 1.5vh;

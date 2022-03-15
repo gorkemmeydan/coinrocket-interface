@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const PortfolioOverviewWrapper = styled.div`
-  background: black;
+  background: var(--background);
+  color: var(--text);
+
   height: 50vh;
   width: 60vw;
   padding: 3vmin;
@@ -13,7 +15,6 @@ export const PortfolioOverviewWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  color: white;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1vmin;

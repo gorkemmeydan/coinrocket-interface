@@ -25,10 +25,12 @@ const getPanelStyles = (props: PanelWrapperProps) => {
 };
 
 export const PanelWrapper = styled.div<PanelWrapperProps>`
+  background: var(--background);
+  color: var(--text);
+
   height: 100vh;
   width: 15%;
   min-width: 200px;
-  background: #0f0d17;
   display: flex;
   flex-direction: column;
   align-items: center;

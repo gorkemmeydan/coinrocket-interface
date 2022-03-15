@@ -8,7 +8,7 @@ interface Props {
 }
 
 const PosNegText: React.FC<Props> = ({ change }: Props) => {
-  const isPositive = checkPositive(change);
+  const isPositive = change >= 0;
 
   return (
     <ColoredText isPositive={isPositive}>

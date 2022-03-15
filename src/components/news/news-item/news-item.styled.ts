@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 export const NewsItemWrapper = styled.div`
-  color: white;
+  background: var(--background);
+  color: var(--text);
+
   display: flex;
   flex-direction: row;
   height: 10vh;
   flex: 0 1;
   justify-content: space-between;
-  border: solid white;
+  border: solid var(--text);
   border-width: thin;
   border-radius: 1vh;
   padding: 2vmin;

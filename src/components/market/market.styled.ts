@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const MarketWrapper = styled.div`
-  background: black;
-  color: white;
+  background: var(--background);
+  color: var(--text);
+
   flex: 1;
   margin: 2vmin;
   border-radius: 2vmin;
@@ -19,7 +20,9 @@ export const Title = styled.div`
 `;
 
 export const HorizontalScrollable = styled.div`
-  background: black;
+  background: var(--background);
+  color: var(--text);
+
   height: 88vh;
   width: 80vw;
   border-radius: 2vmin;

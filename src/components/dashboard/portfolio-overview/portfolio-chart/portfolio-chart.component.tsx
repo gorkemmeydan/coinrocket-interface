@@ -26,7 +26,7 @@ const PortfolioChart: React.FC<Props> = ({ isPositive, data }: Props) => {
         <YAxis />
         <Line
           type='monotone'
-          dataKey='key'
+          dataKey='total'
           stroke={plotColor}
           strokeWidth={5}
           activeDot={{ r: 8 }}

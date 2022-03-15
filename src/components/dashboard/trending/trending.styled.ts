@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const TrendingWrapper = styled.div`
+  background: var(--background);
+  color: var(--text);
+
   height: 72vh;
   width: 20vw;
-  background: black;
   border-radius: 2vmin;
   padding: 2vmin;
 
@@ -14,7 +16,6 @@ export const TrendingWrapper = styled.div`
 export const TrendingTitle = styled.div`
   font-weight: bold;
   font-size: 2rem;
-  color: white;
 `;
 
 export const TrendingItemsContainer = styled.div`

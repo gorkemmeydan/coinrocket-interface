@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import Select, { SingleValue, StylesConfig } from 'react-select';
-import { useAppSelector } from '../../../redux/hooks';
-import { addWatchlistStartAsync } from '../../../redux/watchlist/watchlish.actions';
+import { useHoldings } from '../../../contexts/holdings.context';
+import { useMarket } from '../../../contexts/market.context';
+import addCoinToPortfolioAndRefreshData from '../../../services/addCoinToPortfolioAndRefreshData';
 import coinDataToSearch, {
   customOptionType,
 } from '../../../utils/coinDataToSearch.util';
@@ -11,12 +11,23 @@ import isCoinExistInCoinIdArr from '../../../utils/isCoinExistInCoinIdArr.util';
 import * as S from './add-to-portfolio-content.styled';
 
 interface Props {
+  setActionLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddToPortfolioContent: React.FC<Props> = ({ setModal }: Props) => {
-  const coins = useAppSelector((state) => state.market.coins);
-  const dispatch = useDispatch();
+const AddToPortfolioContent: React.FC<Props> = ({
+  setActionLoading,
+  setModal,
+}: Props) => {
+  const { coins } = useMarket();
+  const { holdings, setHoldings } = useHoldings();
+  let portfolioCoins: string[] = [];
+
+  if (holdings?.portfolio) {
+    for (let i = 0; i < holdings?.portfolio.length; i++) {
+      portfolioCoins.push(holdings?.portfolio[i].coinName);
+    }
+  }
 
   const [selectedCoin, setSelectedCoin] = useState<string>('');
   const [selectCoinError, setSelectCoinError] = useState<boolean>(false);
@@ -31,14 +42,20 @@ const AddToPortfolioContent: React.FC<Props> = ({ setModal }: Props) => {
     }
   };
 
-  const dummyPortfolio = ['bitcoin', 'ethereum'];
-
-  const handleButtonSubmit = () => {
+  const handleButtonSubmit = async () => {
     if (selectedCoin && selectedCoin != '') {
-      if (isCoinExistInCoinIdArr(dummyPortfolio, selectedCoin)) {
+      if (isCoinExistInCoinIdArr(portfolioCoins, selectedCoin)) {
         setCoinExistsError(true);
       } else {
-        // dispatch(addWatchlistStartAsync(selectedCoin));
+        setActionLoading(true);
+
+        await addCoinToPortfolioAndRefreshData({
+          coinName: selectedCoin,
+          holdings: holdings,
+          setHoldings: setHoldings,
+        });
+
+        setActionLoading(false);
         setModal(false);
       }
     } else {
@@ -72,7 +89,7 @@ const AddToPortfolioContent: React.FC<Props> = ({ setModal }: Props) => {
     <S.AddToPortfolioContentWrapper>
       <Select
         styles={selectStyle}
-        options={coinDataToSearch(coins)}
+        options={coinDataToSearch(coins ? coins : [])}
         onChange={handleChange}
       />
       <S.AddToPortfolioButton onClick={handleButtonSubmit}>

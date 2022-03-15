@@ -6,10 +6,12 @@ import * as S from './login-content.styled';
 
 const LoginContent: React.FC = () => {
   const router = useRouter();
+  const { session } = router.query;
 
   return (
     <S.LoginContentWrapper>
-      <S.LoginTitle>Sign In</S.LoginTitle>
+      {session && <S.QueryMessage>Your session has expired</S.QueryMessage>}
+      <S.LoginTitle>Log In</S.LoginTitle>
       <LoginForm />
       <S.RedirectToSignUpWrapper>
         <S.RedirectInfoText>New to CoinRocket?</S.RedirectInfoText>

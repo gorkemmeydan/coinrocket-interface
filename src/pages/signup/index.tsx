@@ -4,10 +4,10 @@ import SignUpContent from '../../components/signup-content/signup-content.compon
 
 const SignUp: NextPage = () => {
   return (
-    <div>
+    <>
       <Header withLoginButton={false} withHomePageLink={true} />
       <SignUpContent />
-    </div>
+    </>
   );
 };
 

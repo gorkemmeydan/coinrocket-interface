@@ -1,49 +1,50 @@
-import React, { useEffect } from 'react';
-import { useAppSelector } from '../../../redux/hooks';
+import React, { useMemo } from 'react';
 import arrayToObjectArray from '../../../utils/arrayToObjectArray.util';
 import FavoriteItem from './favorite-item/favorite-item.component';
 import _uniqueId from 'lodash/uniqueId';
 
 import * as S from './favorites.styled';
-import { useDispatch } from 'react-redux';
-import { fetchWatchlistCoinsStartAsync } from '../../../redux/watchlist/watchlish.actions';
+import { selectHoldings } from '../../../contexts/holdings.context';
+import calculateChangePercent from '../../../utils/calculateChangePercent';
+import { UserHoldings } from '../../../types/types';
+import connectToContext from '../../../contexts/connectToContext';
 
-const Favorites: React.FC = () => {
-  const watched_coins = useAppSelector(
-    (state) => state.watchlist.watched_coins
-  );
-  const coins = useAppSelector((state) => state.watchlist.coins);
-  const dispatch = useDispatch();
+interface Props {
+  isFullSize: boolean;
+  holdings: UserHoldings;
+}
 
-  useEffect(() => {
-    dispatch(fetchWatchlistCoinsStartAsync(watched_coins));
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchWatchlistCoinsStartAsync(watched_coins));
-  }, [watched_coins]);
+const Favorites: React.FC<Props> = React.memo(({ isFullSize, holdings }) => {
+  const arrayIteration = isFullSize ? [0, 1, 2] : [0, 1];
 
   return (
     <S.FavoritesWrapper>
-      {Array.from([0, 1, 2], (i) => {
-        const isEmpty = typeof coins[i] === 'undefined';
+      {Array.from([...arrayIteration], (i: number) => {
+        const watchListItem = holdings?.watchList[i];
+        const data = watchListItem?.coinData;
         return (
           <FavoriteItem
-            isEmpty={isEmpty}
+            isEmpty={data ? false : true}
             key={_uniqueId('watchlist-item')}
-            imageUrl={!isEmpty ? coins[i].logoUrl : ''}
-            price={!isEmpty ? coins[i].price : 0}
-            change={!isEmpty ? coins[i].change_7d : 0}
-            chartData={
-              !isEmpty ? arrayToObjectArray(coins[i].price_7d, 'key') : [{}]
+            imageUrl={data ? data.logoUrl : ''}
+            price={data ? data.price : ''}
+            change={
+              data
+                ? calculateChangePercent(
+                    data.price_7d[0],
+                    data.price_7d[data.price_7d.length - 1]
+                  )
+                : 0
             }
-            range={!isEmpty ? coins[i].price_min_max : []}
-            coin_id={!isEmpty ? coins[i].id : ''}
+            chartData={data ? arrayToObjectArray(data.price_7d, 'key') : [{}]}
+            priceArray={data ? data.price_7d : []}
+            range={data ? data.price_min_max : []}
+            coin_id={data ? data.id : ''}
           />
         );
       })}
     </S.FavoritesWrapper>
   );
-};
+});
 
-export default Favorites;
+export default connectToContext(Favorites, selectHoldings);

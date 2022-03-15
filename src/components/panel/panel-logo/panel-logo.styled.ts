@@ -9,13 +9,15 @@ export const PanelLogoWrapper = styled.div`
 
 export const CompanyName = styled.div`
   font-size: calc(1vw + 1.2vmin);
+  color: var(--text);
 `;
 
 export const LogoContainer = styled.div`
+  fill: var(--text);
+
   transform: rotate(20deg);
   height: 5vmin;
   min-height: 30px;
   width: 5vmin;
   min-width: 30px;
-  fill: white;
 `;

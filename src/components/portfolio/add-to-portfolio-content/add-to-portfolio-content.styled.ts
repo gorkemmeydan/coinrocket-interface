@@ -1,21 +1,23 @@
 import styled from 'styled-components';
 
 export const AddToPortfolioContentWrapper = styled.div`
+  background: var(--background);
+  color: var(--text);
+
   width: 100%;
   height: 100%;
-  background: black;
-  color: white;
   display: flex;
   flex-direction: column;
   gap: 2vh;
 `;
 
 export const AddToPortfolioButton = styled.div`
+  background: var(--text);
+  color: var(--background);
+
   width: 10vw;
   height: 5vh;
   border-radius: 2vmin;
-  background: white;
-  color: black;
 
   display: flex;
   justify-content: center;

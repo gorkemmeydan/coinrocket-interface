@@ -1,8 +1,6 @@
 import React from 'react';
 import * as S from './story-card.styled';
 
-import Image from 'next/image';
-
 interface StoryCardProps {
   cardText: string;
   CardImage: React.FC;

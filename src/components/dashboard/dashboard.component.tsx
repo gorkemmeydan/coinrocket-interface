@@ -1,36 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../redux/hooks';
-import { fetchMarketStartAsync } from '../../redux/market/market.actions';
-import { fetchNewsStartAsync } from '../../redux/news/news.actions';
-import { fetchTrendingStartAsync } from '../../redux/trending/trending.actions';
-import { fetchWatchlistStartAsync } from '../../redux/watchlist/watchlish.actions';
+import React from 'react';
 
 import * as S from './dashboard.styled';
 import Favorites from './favorites/favorites.component';
-import MiniNewsContainer from './mini-news/mini-news.container';
+import MiniNews from './mini-news/mini-news.component';
 import PortfolioOverview from './portfolio-overview/portfolio-overview.component';
-import TrendingContainer from './trending/trending.container';
+import Trending from './trending/trending.component';
 
-const DashboardLayout: React.FC = () => {
-  const dispatch = useDispatch();
+interface Props {
+  isFullSize: boolean;
+}
 
-  useEffect(() => {
-    dispatch(fetchTrendingStartAsync());
-    dispatch(fetchNewsStartAsync());
-    dispatch(fetchMarketStartAsync());
-    dispatch(fetchWatchlistStartAsync());
-  }, [dispatch]);
-
+const DashboardLayout: React.FC<Props> = ({ isFullSize }) => {
   return (
     <S.DashboardWrapper>
-      <Favorites />
+      <Favorites isFullSize={isFullSize} />
       <S.PortfolioNewsTrensWrapper>
         <S.PortfolioNewsWrapper>
           <PortfolioOverview />
-          <MiniNewsContainer />
+          <MiniNews />
         </S.PortfolioNewsWrapper>
-        <TrendingContainer />
+        {isFullSize ? <Trending /> : null}
       </S.PortfolioNewsTrensWrapper>
     </S.DashboardWrapper>
   );
