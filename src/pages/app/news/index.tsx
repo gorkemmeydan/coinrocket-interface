@@ -1,10 +1,13 @@
-import type { NextPage } from 'next';
 import { useEffect } from 'react';
-import NewsLayout from '../../../components/news/news.component';
-import { useNews } from '../../../contexts/news.context';
-import AppLayout from '../../../layouts/app/app.layout';
-import { getNews } from '../../../services/api/getNews';
-import { Media, MediaContextProvider } from '../../../styles/media';
+import type { NextPage } from 'next';
+
+import { useNews } from '@contexts/news';
+
+import { getNews } from '@services/api/getNews';
+
+import AppLayout from '@layouts/app';
+import NewsContent from '@components/NewsContent';
+import { Media, MediaContextProvider } from '@styles/media';
 
 const News: NextPage = () => {
   const { setNewsLoading, setNews } = useNews();
@@ -18,16 +21,16 @@ const News: NextPage = () => {
   return (
     <MediaContextProvider>
       <Media at='mobile'>
-        <AppLayout size={'mobile'} children={<NewsLayout />} />
+        <AppLayout size={'mobile'} children={<NewsContent />} />
       </Media>
       <Media at='small'>
-        <AppLayout size={'small'} children={<NewsLayout />} />
+        <AppLayout size={'small'} children={<NewsContent />} />
       </Media>
       <Media at='medium'>
-        <AppLayout size={'medium'} children={<NewsLayout />} />
+        <AppLayout size={'medium'} children={<NewsContent />} />
       </Media>
       <Media greaterThanOrEqual='large'>
-        <AppLayout size={'large'} children={<NewsLayout />} />
+        <AppLayout size={'large'} children={<NewsContent />} />
       </Media>
     </MediaContextProvider>
   );

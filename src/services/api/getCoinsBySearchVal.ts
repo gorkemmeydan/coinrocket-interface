@@ -1,5 +1,5 @@
-import { MARKETDATA_SEARCH_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { MARKETDATA_SEARCH_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 import { convertToMarketItemsMap } from '../service-utils/convertToMarketItemsMap';
 
 interface SearchValResponse {

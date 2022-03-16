@@ -1,5 +1,5 @@
-import { COINTRANSACTION_ADD_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { COINTRANSACTION_ADD_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 
 interface AddToPortfolioProps {
   email: string;

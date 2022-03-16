@@ -1,4 +1,4 @@
-import { UserPortfolioItem } from '../../types/types';
+import { UserPortfolioItem } from 'types';
 
 export const convertToPortfolioItemsMap = (response: {
   data: UserPortfolioItem[];

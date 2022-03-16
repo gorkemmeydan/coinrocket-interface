@@ -1,12 +1,10 @@
-import React from 'react';
+import combineComponents from '@utils/combineComponents';
 
-import combineComponents from '../utils/combineComponents';
-
-import { MarketProvider } from './market.context';
-import { NewsProvider } from './news.context';
-import { TrendingProvider } from './trending.context';
-import { AuthProvider } from './auth.context';
-import { HoldingsProvider } from './holdings.context';
+import { MarketProvider } from './market';
+import { NewsProvider } from './news';
+import { TrendingProvider } from './trending';
+import { AuthProvider } from './auth';
+import { HoldingsProvider } from './holdings';
 
 const providers = [
   MarketProvider,

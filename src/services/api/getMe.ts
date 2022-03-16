@@ -1,5 +1,5 @@
-import { USER_ME_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { USER_ME_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 
 interface IMeResponse {
   data: { email: string };

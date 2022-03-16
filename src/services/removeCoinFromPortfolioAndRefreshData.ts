@@ -1,5 +1,7 @@
-import { notifyError } from '../lib/toast';
-import { UserHoldings } from '../types/types';
+import { notifyError } from '@lib/toast';
+
+import { UserHoldings } from 'types';
+
 import { removeFromPortfolio } from './api/removeCoinFromPortfolio';
 import getUserHoldingsAndParseData from './getUserHoldingsAndParseData';
 

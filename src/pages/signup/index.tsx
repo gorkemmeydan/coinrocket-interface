@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
-import Header from '../../components/header/header.component';
-import SignUpContent from '../../components/signup-content/signup-content.component';
+
+import Header from '@components/Header';
+import SignUpContent from '@components/SignupContent';
 
 const SignUp: NextPage = () => {
   return (

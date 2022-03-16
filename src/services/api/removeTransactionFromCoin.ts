@@ -1,5 +1,5 @@
-import { COINTRANSACTION_REMOVE_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { COINTRANSACTION_REMOVE_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 
 interface RemoveTransactionFromCoinProps {
   email: string;

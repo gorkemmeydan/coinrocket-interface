@@ -1,4 +1,4 @@
-import { UserPortfolioItem, WatchlistItem } from '../../types/types';
+import { UserPortfolioItem, WatchlistItem } from 'types';
 
 const extractCoinNamesFromHoldings = (
   items: WatchlistItem[] | UserPortfolioItem[]

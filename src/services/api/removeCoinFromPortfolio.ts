@@ -1,5 +1,5 @@
-import { PORTFOLIO_REMOVE_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { PORTFOLIO_REMOVE_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 
 interface RemoveFromPortfolioProps {
   email: string;

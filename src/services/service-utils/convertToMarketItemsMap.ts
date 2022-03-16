@@ -1,4 +1,4 @@
-import { CoinData } from '../../types/types';
+import { CoinData } from 'types';
 
 export const convertToMarketItemsMap = (response: {
   data: {

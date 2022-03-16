@@ -1,6 +1,6 @@
-import { WATCHLIST_GET_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
-import { WatchlistItem } from '../../types/types';
+import { WATCHLIST_GET_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
+import { WatchlistItem } from 'types';
 import { convertToWatchlistItemsMap } from '../service-utils/convertToWatchlistItemsMap';
 
 interface IWatchlistResponse {

@@ -1,4 +1,4 @@
-import { WatchlistItem } from '../../types/types';
+import { WatchlistItem } from 'types';
 
 export const convertToWatchlistItemsMap = (response: {
   data: WatchlistItem[];

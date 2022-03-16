@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
-import Header from '../components/header/header.component';
-import StoryCard from '../components/story-card/story-card.component';
 
-import PortfolioIcon from '../assets/portfolio';
+import Header from '@components/Header';
+import StoryCard from '@components/StoryCard';
+
+import PortfolioIcon from '@assets/portfolio';
 
 const Home: NextPage = () => {
   const cardText = 'Track All Of Your Crypto Assets In One Place';

@@ -1,5 +1,5 @@
-import { AUTH_PASSWORD, AUTH_USERNAME, PROXY_LOGOUT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { AUTH_PASSWORD, AUTH_USERNAME, PROXY_LOGOUT } from 'config';
+import axiosInstance from '@lib/axios';
 
 export const logout = async () => {
   try {

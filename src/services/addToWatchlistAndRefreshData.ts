@@ -1,11 +1,14 @@
-import { notifyError } from '../lib/toast';
-import { UserHoldings } from '../types/types';
+import _ from 'lodash';
+
+import { notifyError } from '@lib/toast';
+
+import { UserHoldings } from 'types';
+
 import { addToWatchlist } from './api/addToWatchlist';
 import { getCoinsBySearchVal } from './api/getCoinsBySearchVal';
 import { getWatchlist } from './api/getWatchlist';
-import extractCoinNamesFromHoldings from './service-utils/extractCoinNamesFromHoldings';
 
-import _ from 'lodash';
+import extractCoinNamesFromHoldings from './service-utils/extractCoinNamesFromHoldings';
 
 interface Props {
   coinName: string;

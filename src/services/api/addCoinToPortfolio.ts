@@ -1,5 +1,5 @@
-import { PORTFOLIO_ADD_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { PORTFOLIO_ADD_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 
 interface AddToPortfolioProps {
   email: string;

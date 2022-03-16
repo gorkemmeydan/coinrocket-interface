@@ -1,5 +1,5 @@
-import { WATCHLIST_ADD_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { WATCHLIST_ADD_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 
 interface AddToWatchlistProps {
   email: string;

@@ -1,10 +1,13 @@
-import type { NextPage } from 'next';
 import { useEffect } from 'react';
-import MarketLayout from '../../../components/market/market.component';
-import { useMarket } from '../../../contexts/market.context';
-import AppLayout from '../../../layouts/app/app.layout';
-import { getMarketTop100 } from '../../../services/api/getMarketTop100';
-import { Media, MediaContextProvider } from '../../../styles/media';
+import type { NextPage } from 'next';
+
+import { useMarket } from '@contexts/market';
+
+import { getMarketTop100 } from '@services/api/getMarketTop100';
+
+import MarketContent from '@components/Market';
+import AppLayout from '@layouts/app';
+import { Media, MediaContextProvider } from '@styles/media';
 
 const Market: NextPage = () => {
   const { setMarketLoading, setCoins } = useMarket();
@@ -18,16 +21,16 @@ const Market: NextPage = () => {
   return (
     <MediaContextProvider>
       <Media at='mobile'>
-        <AppLayout size={'mobile'} children={<MarketLayout />} />
+        <AppLayout size={'mobile'} children={<MarketContent />} />
       </Media>
       <Media at='small'>
-        <AppLayout size={'small'} children={<MarketLayout />} />
+        <AppLayout size={'small'} children={<MarketContent />} />
       </Media>
       <Media at='medium'>
-        <AppLayout size={'medium'} children={<MarketLayout />} />
+        <AppLayout size={'medium'} children={<MarketContent />} />
       </Media>
       <Media greaterThanOrEqual='large'>
-        <AppLayout size={'large'} children={<MarketLayout />} />
+        <AppLayout size={'large'} children={<MarketContent />} />
       </Media>
     </MediaContextProvider>
   );

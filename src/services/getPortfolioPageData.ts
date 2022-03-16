@@ -1,5 +1,7 @@
-import { notifyError } from '../lib/toast';
-import { CoinData, UserHoldings } from '../types/types';
+import { notifyError } from '@lib/toast';
+
+import { CoinData, UserHoldings } from 'types';
+
 import { getMarketTop100 } from './api/getMarketTop100';
 import { getMe } from './api/getMe';
 import getUserHoldingsAndParseData from './getUserHoldingsAndParseData';

@@ -1,5 +1,5 @@
-import { NEWS_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { NEWS_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 import { convertToNewsItemMap } from '../service-utils/convertToNewsItemMap';
 
 interface INewsResponse {

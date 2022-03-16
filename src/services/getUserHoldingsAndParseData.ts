@@ -1,4 +1,4 @@
-import { UserHoldings } from '../types/types';
+import { UserHoldings } from 'types';
 import { getCoinsBySearchVal } from './api/getCoinsBySearchVal';
 import { getUserHoldings } from './api/getUserHoldings';
 import constructGraphData from './service-utils/constructGraphData';

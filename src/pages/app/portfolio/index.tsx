@@ -1,13 +1,15 @@
+import { useEffect } from 'react';
 import type { NextPage } from 'next';
 
-import { Media, MediaContextProvider } from '../../../styles/media';
-import AppLayout from '../../../layouts/app/app.layout';
-import PortfolioLayout from '../../../components/portfolio/portfolio.component';
-import { useAuth } from '../../../contexts/auth.context';
-import { useHoldings } from '../../../contexts/holdings.context';
-import { useEffect } from 'react';
-import getPortfolioPageData from '../../../services/getPortfolioPageData';
-import { useMarket } from '../../../contexts/market.context';
+import { useAuth } from '@contexts/auth';
+import { useHoldings } from '@contexts/holdings';
+import { useMarket } from '@contexts/market';
+
+import getPortfolioPageData from '@services/getPortfolioPageData';
+
+import PortfolioContent from '@components/PortfolioContent';
+import AppLayout from '@layouts/app';
+import { Media, MediaContextProvider } from '@styles/media';
 
 const Portfolio: NextPage = () => {
   const { setCoins } = useMarket();
@@ -26,16 +28,16 @@ const Portfolio: NextPage = () => {
   return (
     <MediaContextProvider>
       <Media at='mobile'>
-        <AppLayout size={'mobile'} children={<PortfolioLayout />} />
+        <AppLayout size={'mobile'} children={<PortfolioContent />} />
       </Media>
       <Media at='small'>
-        <AppLayout size={'small'} children={<PortfolioLayout />} />
+        <AppLayout size={'small'} children={<PortfolioContent />} />
       </Media>
       <Media at='medium'>
-        <AppLayout size={'medium'} children={<PortfolioLayout />} />
+        <AppLayout size={'medium'} children={<PortfolioContent />} />
       </Media>
       <Media greaterThanOrEqual='large'>
-        <AppLayout size={'large'} children={<PortfolioLayout />} />
+        <AppLayout size={'large'} children={<PortfolioContent />} />
       </Media>
     </MediaContextProvider>
   );

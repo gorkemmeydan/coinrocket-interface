@@ -1,7 +1,7 @@
 import axios from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import { useRouter } from 'next/router';
-import { AUTH_PASSWORD, AUTH_USERNAME, PROXY_REFRESH } from '../config';
+import { AUTH_PASSWORD, AUTH_USERNAME, PROXY_REFRESH } from 'config';
 
 const axiosInstance = axios.create({
   withCredentials: true,

@@ -1,4 +1,4 @@
-import { NewsItem } from '../../types/types';
+import { NewsItem } from 'types';
 
 export const convertToNewsItemMap = (response: {
   data: { data: any[] };

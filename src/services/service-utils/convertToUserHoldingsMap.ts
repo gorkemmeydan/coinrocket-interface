@@ -1,8 +1,4 @@
-import {
-  UserHoldings,
-  UserPortfolioItem,
-  WatchlistItem,
-} from '../../types/types';
+import { UserHoldings, UserPortfolioItem, WatchlistItem } from 'types';
 
 export const convertToUserHoldingsMap = (response: {
   data: UserHoldings;

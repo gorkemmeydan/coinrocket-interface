@@ -1,15 +1,17 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
-import DashboardLayout from '../../../components/dashboard/dashboard.component';
-import { useAuth } from '../../../contexts/auth.context';
-import { useHoldings } from '../../../contexts/holdings.context';
-import { useMarket } from '../../../contexts/market.context';
-import { useNews } from '../../../contexts/news.context';
-import { useTrending } from '../../../contexts/trending.context';
-import AppLayout from '../../../layouts/app/app.layout';
-import getDashboardData from '../../../services/getDashboardData';
 
-import { Media, MediaContextProvider } from '../../../styles/media';
+import { useAuth } from '@contexts/auth';
+import { useHoldings } from '@contexts/holdings';
+import { useMarket } from '@contexts/market';
+import { useNews } from '@contexts/news';
+import { useTrending } from '@contexts/trending';
+
+import getDashboardData from '@services/getDashboardData';
+
+import DashboardContent from '@components/DashboardContent';
+import AppLayout from '@layouts/app';
+import { Media, MediaContextProvider } from '@styles/media';
 
 const Dashboard: NextPage = () => {
   const { setTrendingLoading, setTrendingCoins } = useTrending();
@@ -36,25 +38,25 @@ const Dashboard: NextPage = () => {
       <Media at='mobile'>
         <AppLayout
           size={'mobile'}
-          children={<DashboardLayout isFullSize={false} />}
+          children={<DashboardContent isFullSize={false} />}
         />
       </Media>
       <Media at='small'>
         <AppLayout
           size={'small'}
-          children={<DashboardLayout isFullSize={false} />}
+          children={<DashboardContent isFullSize={false} />}
         />
       </Media>
       <Media at='medium'>
         <AppLayout
           size={'medium'}
-          children={<DashboardLayout isFullSize={false} />}
+          children={<DashboardContent isFullSize={false} />}
         />
       </Media>
       <Media greaterThanOrEqual='large'>
         <AppLayout
           size={'large'}
-          children={<DashboardLayout isFullSize={true} />}
+          children={<DashboardContent isFullSize={true} />}
         />
       </Media>
     </MediaContextProvider>

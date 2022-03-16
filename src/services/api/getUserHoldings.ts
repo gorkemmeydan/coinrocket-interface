@@ -1,6 +1,6 @@
-import { USER_HOLDINGS_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
-import { UserHoldings } from '../../types/types';
+import { USER_HOLDINGS_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
+import { UserHoldings } from 'types';
 import { convertToUserHoldingsMap } from '../service-utils/convertToUserHoldingsMap';
 
 interface IUserHoldingsResponse {

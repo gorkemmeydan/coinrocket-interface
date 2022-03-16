@@ -10,7 +10,7 @@ import {
   PROXY_LOGIN,
   PROXY_LOGOUT,
   PROXY_REFRESH,
-} from '../../config/';
+} from 'config/';
 
 const proxy = httpProxy.createProxyServer();
 

@@ -1,6 +1,6 @@
-import { USER_SIGNUP_ENDPONT } from '../../config';
-import axiosInstance from '../../lib/axios';
-import { SignUpData } from '../../types/types';
+import { USER_SIGNUP_ENDPONT } from 'config';
+import axiosInstance from '@lib/axios';
+import { SignUpData } from 'types';
 
 export const signup = async (signupData: SignUpData) => {
   try {

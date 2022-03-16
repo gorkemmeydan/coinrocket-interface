@@ -1,5 +1,5 @@
-import { MARKETDATA_TRENDING_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { MARKETDATA_TRENDING_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
 import { convertToTrendingItemsMap } from '../service-utils/convertToTrendingItemsMap';
 
 interface ITrendingResponse {

@@ -1,5 +1,5 @@
-import { AUTH_PASSWORD, AUTH_USERNAME, PROXY_LOGIN } from '../../config';
-import axiosInstance from '../../lib/axios';
+import { AUTH_PASSWORD, AUTH_USERNAME, PROXY_LOGIN } from 'config';
+import axiosInstance from '@lib/axios';
 
 interface LoginProps {
   email: string;

@@ -1,7 +1,10 @@
-import { notifyError } from '../lib/toast';
-import { UserHoldings } from '../types/types';
-import { removeFromWatchlist } from './api/removeFromWatchlist';
 import _ from 'lodash';
+
+import { notifyError } from '@lib/toast';
+
+import { UserHoldings } from 'types';
+
+import { removeFromWatchlist } from './api/removeFromWatchlist';
 
 interface Props {
   coinName: string;

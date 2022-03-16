@@ -1,6 +1,6 @@
-import { PORTFOLIO_GET_ENDPOINT, WATCHLIST_GET_ENDPOINT } from '../../config';
-import axiosInstance from '../../lib/axios';
-import { UserPortfolioItem } from '../../types/types';
+import { PORTFOLIO_GET_ENDPOINT } from 'config';
+import axiosInstance from '@lib/axios';
+import { UserPortfolioItem } from 'types';
 import { convertToPortfolioItemsMap } from '../service-utils/convertToPortfolioItemsMap';
 
 interface IPortfolioResponse {

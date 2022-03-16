@@ -1,4 +1,4 @@
-import { TrendingCoin } from '../../types/types';
+import { TrendingCoin } from 'types';
 
 export const convertToTrendingItemsMap = (response: {
   data: { coins: any[] };

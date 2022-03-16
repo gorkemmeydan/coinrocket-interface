@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
-import Header from '../../components/header/header.component';
-import LoginContent from '../../components/login-content/login-content.component';
+
+import Header from '@components/Header';
+import LoginContent from '@components/LoginContent';
 
 const Login: NextPage = () => {
   return (

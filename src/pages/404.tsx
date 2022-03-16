@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
-import Header from '../components/header/header.component';
-import StoryCard from '../components/story-card/story-card.component';
 
-import Icon404 from '../assets/icon404';
+import Header from '@components/Header';
+import StoryCard from '@components/StoryCard';
+
+import Icon404 from '@assets/icon404';
 
 const Custom404: NextPage = () => {
   const cardText = "404 - We can't find the page you're looking for";
