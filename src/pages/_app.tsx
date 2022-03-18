@@ -9,7 +9,14 @@ import { GlobalStyle } from '@styles/GlobalStyle';
 import '@styles/globals.css';
 import { ThemeProvider } from 'next-themes';
 
+import { useEffect } from 'react';
+import createTestEnvironment from '@utils/createTestEnvironment';
+
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    createTestEnvironment();
+  }, []);
+
   return (
     <AppContextProvider>
       <GlobalStyle />

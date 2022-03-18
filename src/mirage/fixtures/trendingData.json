@@ -1,0 +1,110 @@
+{
+  "coins": [
+    {
+      "item": {
+        "id": "apecoin",
+        "coin_id": 24383,
+        "name": "ApeCoin",
+        "symbol": "APE",
+        "market_cap_rank": 117,
+        "thumb": "https://assets.coingecko.com/coins/images/24383/thumb/apecoin.jpg?1647476455",
+        "small": "https://assets.coingecko.com/coins/images/24383/small/apecoin.jpg?1647476455",
+        "large": "https://assets.coingecko.com/coins/images/24383/large/apecoin.jpg?1647476455",
+        "slug": "apecoin",
+        "price_btc": 1.8449407502863836e-4,
+        "score": 0
+      }
+    },
+    {
+      "item": {
+        "id": "exeedme",
+        "coin_id": 13518,
+        "name": "Exeedme",
+        "symbol": "XED",
+        "market_cap_rank": 938,
+        "thumb": "https://assets.coingecko.com/coins/images/13518/thumb/exeedme.png?1610669597",
+        "small": "https://assets.coingecko.com/coins/images/13518/small/exeedme.png?1610669597",
+        "large": "https://assets.coingecko.com/coins/images/13518/large/exeedme.png?1610669597",
+        "slug": "exeedme",
+        "price_btc": 4.578297761128445e-6,
+        "score": 1
+      }
+    },
+    {
+      "item": {
+        "id": "ovr",
+        "coin_id": 13429,
+        "name": "Ovr",
+        "symbol": "OVR",
+        "market_cap_rank": 616,
+        "thumb": "https://assets.coingecko.com/coins/images/13429/thumb/ovr_logo.png?1608518911",
+        "small": "https://assets.coingecko.com/coins/images/13429/small/ovr_logo.png?1608518911",
+        "large": "https://assets.coingecko.com/coins/images/13429/large/ovr_logo.png?1608518911",
+        "slug": "ovr",
+        "price_btc": 3.824935140075179e-5,
+        "score": 2
+      }
+    },
+    {
+      "item": {
+        "id": "stepn",
+        "coin_id": 23597,
+        "name": "STEPN",
+        "symbol": "GMT",
+        "market_cap_rank": 166,
+        "thumb": "https://assets.coingecko.com/coins/images/23597/thumb/gmt.png?1644658792",
+        "small": "https://assets.coingecko.com/coins/images/23597/small/gmt.png?1644658792",
+        "large": "https://assets.coingecko.com/coins/images/23597/large/gmt.png?1644658792",
+        "slug": "stepn",
+        "price_btc": 1.6398234507295186e-5,
+        "score": 3
+      }
+    },
+    {
+      "item": {
+        "id": "pancakeswap-token",
+        "coin_id": 12632,
+        "name": "PancakeSwap",
+        "symbol": "CAKE",
+        "market_cap_rank": 65,
+        "thumb": "https://assets.coingecko.com/coins/images/12632/thumb/pancakeswap-cake-logo_%281%29.png?1629359065",
+        "small": "https://assets.coingecko.com/coins/images/12632/small/pancakeswap-cake-logo_%281%29.png?1629359065",
+        "large": "https://assets.coingecko.com/coins/images/12632/large/pancakeswap-cake-logo_%281%29.png?1629359065",
+        "slug": "pancakeswap",
+        "price_btc": 1.577268308557223e-4,
+        "score": 4
+      }
+    },
+    {
+      "item": {
+        "id": "thorchain",
+        "coin_id": 6595,
+        "name": "THORChain",
+        "symbol": "RUNE",
+        "market_cap_rank": 54,
+        "thumb": "https://assets.coingecko.com/coins/images/6595/thumb/RUNE.png?1614160507",
+        "small": "https://assets.coingecko.com/coins/images/6595/small/RUNE.png?1614160507",
+        "large": "https://assets.coingecko.com/coins/images/6595/large/RUNE.png?1614160507",
+        "slug": "thorchain",
+        "price_btc": 1.99132101151215e-4,
+        "score": 5
+      }
+    },
+    {
+      "item": {
+        "id": "fantom",
+        "coin_id": 4001,
+        "name": "Fantom",
+        "symbol": "FTM",
+        "market_cap_rank": 43,
+        "thumb": "https://assets.coingecko.com/coins/images/4001/thumb/Fantom.png?1558015016",
+        "small": "https://assets.coingecko.com/coins/images/4001/small/Fantom.png?1558015016",
+        "large": "https://assets.coingecko.com/coins/images/4001/large/Fantom.png?1558015016",
+        "slug": "fantom",
+        "price_btc": 3.0032276513523612e-5,
+        "score": 6
+      }
+    }
+  ],
+  "exchanges": []
+}

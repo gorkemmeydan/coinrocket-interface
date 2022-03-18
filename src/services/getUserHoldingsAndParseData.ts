@@ -22,8 +22,10 @@ const getUserHoldingsAndParseData = async ({ email, setHoldings }: Props) => {
               let idx = userHoldingsResponse.watchList.findIndex(
                 (x) => x.coinName === watchlistDataResponse[i].id
               );
-              userHoldingsResponse.watchList[idx].coinData =
-                watchlistDataResponse[i];
+              if (idx !== -1) {
+                userHoldingsResponse.watchList[idx].coinData =
+                  watchlistDataResponse[i];
+              }
             }
           }
         );
@@ -39,13 +41,15 @@ const getUserHoldingsAndParseData = async ({ email, setHoldings }: Props) => {
               let idx = userHoldingsResponse.portfolio.findIndex(
                 (x) => x.coinName === portfolioDataResponse[i].id
               );
-              userHoldingsResponse.portfolio[idx].coinData =
-                portfolioDataResponse[i];
-              userHoldingsResponse.portfolio[idx].graphData =
-                constructGraphData(
-                  portfolioDataResponse[i].price_7d,
-                  userHoldingsResponse.portfolio[idx].lastWeeksHoldings
-                );
+              if (idx !== -1) {
+                userHoldingsResponse.portfolio[idx].coinData =
+                  portfolioDataResponse[i];
+                userHoldingsResponse.portfolio[idx].graphData =
+                  constructGraphData(
+                    portfolioDataResponse[i].price_7d,
+                    userHoldingsResponse.portfolio[idx].lastWeeksHoldings
+                  );
+              }
             }
           }
         );

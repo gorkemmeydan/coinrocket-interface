@@ -28,9 +28,16 @@
       "@services/*": ["services/*"],
       "@styles/*": ["styles/*"],
       "@types/*": ["types/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@mirage/*": ["mirage/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "cypress/support/index.js",
+    "src/utils/createTestEnvironment.js"
+  ],
   "exclude": ["node_modules"]
 }
