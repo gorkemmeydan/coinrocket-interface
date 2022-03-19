@@ -11,16 +11,11 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         env: 
-          HOST= ${{ secrets.HOST }}
-          AUTH_ENDPOINT= ${{ secrets.AUTH_ENDPOINT }}
-          AUTH_USERNAME= ${{ secrets.AUTH_USERNAME }}
-          AUTH_PASSWORD= ${{ secrets.AUTH_PASSWORD }}
-          LOGOUT_ENDPOINT= ${{ secrets.LOGOUT_ENDPOINT }}
+          HOST: ${{ secrets.HOST }}
+          AUTH_ENDPOINT: ${{ secrets.AUTH_ENDPOINT }}
+          AUTH_USERNAME: ${{ secrets.AUTH_USERNAME }}
+          AUTH_PASSWORD: ${{ secrets.AUTH_PASSWORD }}
+          LOGOUT_ENDPOINT: ${{ secrets.LOGOUT_ENDPOINT }}
         with:
           dev: yarn run dev
           wait-on: http://localhost:3000
-      - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-videos
-          path: cypress/videos
