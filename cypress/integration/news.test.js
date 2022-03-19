@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Portfolio', () => {
+describe('News', () => {
   beforeEach(() => {
     cy.visit('/login');
     cy.get('input[name="email"]').type('test@test.com');

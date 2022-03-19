@@ -78,7 +78,7 @@ describe('Portfolio', () => {
     );
   });
 
-  it('should be able to open transacion details and remove transaction', () => {
+  xit('should be able to open transacion details and remove transaction', () => {
     cy.get(
       '[class^="TransactionHistoryButtonstyled__ShowTransactionsButton"]'
     ).click();
@@ -92,7 +92,7 @@ describe('Portfolio', () => {
     cy.get('[class^="TransactionHistoryTablestyled__DropDownContent"]').click();
   });
 
-  it('should be able to add new transacion', () => {
+  xit('should be able to add new transacion', () => {
     cy.get(
       '[class^="TransactionHistoryButtonstyled__ShowTransactionsButton"]'
     ).click();
@@ -120,7 +120,7 @@ describe('Portfolio', () => {
     );
   });
 
-  it('should be able to remove coin from portfolio', () => {
+  xit('should be able to remove coin from portfolio', () => {
     cy.get('[class^="DeleteDropdownButtonstyled__DropdownButton"]').click();
     cy.get('[class^="DeleteDropdownButtonstyled__DropDownContent"]').click();
     cy.get('[class^="TransactionHistoryTablestyled__RowDataWrapper"]').should(
