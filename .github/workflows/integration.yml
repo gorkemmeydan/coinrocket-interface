@@ -1,3 +1,4 @@
+# prettier-ignore
 name: integration
 on: [push]
 jobs:
@@ -9,12 +10,13 @@ jobs:
         uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        with:
+        env: 
           HOST= ${{ secrets.HOST }}
           AUTH_ENDPOINT= ${{ secrets.AUTH_ENDPOINT }}
           AUTH_USERNAME= ${{ secrets.AUTH_USERNAME }}
           AUTH_PASSWORD= ${{ secrets.AUTH_PASSWORD }}
           LOGOUT_ENDPOINT= ${{ secrets.LOGOUT_ENDPOINT }}
+        with:
           dev: yarn run dev
           wait-on: http://localhost:3000
       - uses: actions/upload-artifact@v1
