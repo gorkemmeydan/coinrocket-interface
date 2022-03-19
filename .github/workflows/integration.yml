@@ -17,6 +17,5 @@ jobs:
           AUTH_PASSWORD: ${{ secrets.AUTH_PASSWORD }}
           LOGOUT_ENDPOINT: ${{ secrets.LOGOUT_ENDPOINT }}
         with:
-          build: yarn build
-          start: yarn start
+          dev: yarn dev
           wait-on: http://localhost:3000
